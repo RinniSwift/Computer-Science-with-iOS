@@ -10,3 +10,5 @@
 
 
 # [GCD](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)
+
+# [URL Components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)
