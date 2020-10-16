@@ -4,7 +4,7 @@
 # iOS Knowledge
 *A collection of iOS knowledge bellow.*
 
-# Memory Management
+# [Memory Management](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/memoryManagement.md)
 
 # Reference and Value Types
 
