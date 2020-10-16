@@ -295,3 +295,4 @@ Now within the receiveValue completion, it will be handled on the main queue.
 
 > :bulb: Combine is very useful when wanting to extract out access information in the completion. Which is what we want. To have as little code as possible.
 
+*[next page: url components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)*
