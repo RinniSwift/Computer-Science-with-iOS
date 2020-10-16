@@ -1,3 +1,5 @@
+*[previous page: memory management](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/memoryManagement.md)*
+
 # Reference and Value Types
 
 **Reference Types**
@@ -69,3 +71,5 @@ struct Person {
    }
 }
 ```
+
+*[next page: gcd](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)*
