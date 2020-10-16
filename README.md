@@ -368,3 +368,89 @@ DispatchQueue.main.sync {
 > *It's a serial queue. This is where all UI related tasks are executed.*<br />
 > What is a thread explosion, and how can you limit this?
 > *Thread explosion is when the pool exceeds the limit of 65 threads. This can be handled and limited by using a semaphore by giving the value to the semaphore to limit it down.*
+
+# Combine Framework
+
+Combine is an API for processing values over time. This is used to simplify code with dealing with things like delegates, notifications, timers, completion blocks, and call backs.
+
+This is the most similar to the reactive framework (RXSwift) but Apple has made it's own.
+
+Combine is very similar to reactive programming in the sense that observe values over time on asynchronous events and operations.
+
+There're mainly five pieces to the combine framework
+
+- A ***publisher*** is an observable object that emits values over time and can optionally complete when there are no more values or when encountered an error.
+- ***Subscribers*** are objects or closures that receive a stream of value, completion, or failure events from a publisher.
+
+    There are two built in subscribers in Combine. 
+
+    - *sink*
+    - *assign*
+
+    Both *sink* and *assign* conform to the cancellable protocol.
+
+    There's also a subscriber built in SwiftUI — onReceive.
+
+- A ***subject*** is a ***mutable*** object that can be used to send new values through a publisher.
+- ***Operators*** are reactive chains that applies some transform to the data that was sent to it.
+- A ***cancellable*** is used to keep track of a subscription to a given publisher, and needs to remain as long as we want the subscription to remain active.
+
+*Create a publisher*
+
+```swift
+let url = URL(string: "https://api.github.com/repos/johnsundell/publish")!
+let publisher = URLSesssion.shared.dataTaskPublisher(for: url)
+```
+
+*Attach subscriptions to it using the `sink` API*
+
+```swift
+let cancellable = publisher.sink {
+   receiveCompletion: { completion in
+      print(completion)
+   },
+   receiveValue: { value in 
+      print(value)
+   }
+}
+```
+
+`receiveCompletion` gets called once when the publisher has completed.
+
+`receiveValue` gets called multiple times when the publisher has observed a change.
+
+When creating a new subscription, with the sink API, it always returns an object that conforms to the `cancellable` protocol. When the object is deallocated, the subscription will automatically get canceled. But you can also cancel it by calling the `cancel()`.
+
+The `completion` being a result type
+
+The `value` being a tuple containing the downloaded data as well as the network response. `(Data, URLResponse)`
+
+*Use the **map** operator to extract data from the publisher as well as other operators that can work with the publisher. e.g. **decode***
+
+```swift
+let dataPublisher = publisher.map(\.data) 
+let repoPublisher = publisher.map(\.data).decode(type: Repo.self, decoder: JSONDecoder())
+```
+
+*Now we've created a repoPublisher that emits Repo types as it's values. So we can call like below*
+
+```swift
+let cancellable = repoPublisher.sink {
+   receiveCompletion: { completion in
+      print(completion)
+   },
+   receiveValue: { repo in // repo is of type `Repo`
+      print(repo)
+   }
+}
+```
+
+*And we can add some extra to edit the code*
+
+```swift
+let repoPublisher = publisher.map(\.data).decode(type: Repo.self, decoder: JSONDecoder()).receive(on: DispatchQueue.main)
+```
+
+Now within the receiveValue completion, it will be handled on the main queue.
+
+> :bulb: Combine is very useful when wanting to extract out access information in the completion. Which is what we want. To have as little code as possible.
