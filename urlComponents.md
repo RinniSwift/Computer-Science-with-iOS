@@ -11,3 +11,5 @@ URL components in Swift are comprised of
 - host
 - path
 - URLQueryItems
+
+*[next page: pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)*
