@@ -81,3 +81,5 @@ Happens when low priority tasks lock a resource needed by a higher priority task
 >   This is uninitialized data and it is stored in the BSS area, in the data segment.
 > - How many levels does Swift have for reference types?
 > - What is the difference between week and unowned?
+
+*[next page: reference and value types](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/referenceAndValueTypes.md)*
