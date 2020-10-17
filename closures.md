@@ -54,4 +54,4 @@ class ServicesViewController: UIViewController {
 }
 ```
 
-*[next page: uitableview vs uicollectionview](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/uiTableViewVsUICollectionView.md)*
+*[next page: data persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)*

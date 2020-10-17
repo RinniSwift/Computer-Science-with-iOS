@@ -22,3 +22,7 @@
 # [UIKit](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/ui.md)
 
 # [Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)
+
+# [Data Persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)
+
+# [Software Architectural Patterns](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/softwareArchitectPatterns.md)
