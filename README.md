@@ -26,3 +26,9 @@
 # [Data Persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)
 
 # [Software Architectural Patterns](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/softwareArchitectPatterns.md)
+
+# [App Frameworks / Libraries](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/frameworks.md)
+
+# [Testing](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/testing.md)
+
+# [Swift UI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)

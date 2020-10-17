@@ -82,3 +82,5 @@ Benefits of protocols
 - All types can conform to multiple protocols — huge benifit over class ingeritance.
 - Seperation of Concern; you can create multiple protocols for very specific tasks.
 - Protocol extensions; there may be a case where you need to create extra functionality, that's where you'd use protocol extensions. (Unlike class inheritance where you'd have to mdify the main parent class)
+
+*[next page: app frameworks / libraries](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/frameworks.md)*
