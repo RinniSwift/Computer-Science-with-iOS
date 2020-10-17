@@ -41,3 +41,7 @@ Stacks are LIFO(Last In First Out) order.
 - UINavigationController
 
     This is a container which is stack based for hierarchical content.
+
+### Implementation
+
+[Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/Stack.playground/Contents.swift)

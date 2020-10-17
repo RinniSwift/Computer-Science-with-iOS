@@ -53,3 +53,6 @@ whenever you dequeue from a queue, you will:
 
 ## Where is it used?
 
+### Implementation
+
+[Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/Queue.playground/Contents.swift)
