@@ -3,3 +3,4 @@
 *.xcworkspace
 Resources
 xcuserdata
+.DS_Store
