@@ -1,4 +1,4 @@
-*[previous page: uikit](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/ui.md)*
+*[previous page: enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)*
 
 # Closures
 

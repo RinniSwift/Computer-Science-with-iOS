@@ -27,6 +27,8 @@
 >
 > **[UIKit](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/ui.md)**
 >
+> **[Enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)**
+>
 > **[Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)**
 >
 > **[Data Persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)**
