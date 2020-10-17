@@ -1,5 +1,13 @@
 # Computer-Science-with-iOS
 
+# Data Structures
+
+> :link: [Linked List](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/linkedList.md)
+>
+> :books: [Stack](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/stack.md)
+>
+> :couple: [Queue](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/queue.md)
+
 
 # :iphone: iOS Knowledge
 
