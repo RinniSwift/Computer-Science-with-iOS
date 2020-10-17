@@ -18,3 +18,7 @@
 # [Access Control](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/accessControl.md)
 
 # [Types](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/types.md)
+
+# [UIKit](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/ui.md)
+
+# [Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)
