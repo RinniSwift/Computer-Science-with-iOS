@@ -1,4 +1,4 @@
-*[previous page: url components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)*
+*[previous page: pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)*
 
 # Access Control
 
