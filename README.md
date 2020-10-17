@@ -16,3 +16,5 @@
 # [Pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)
 
 # [Access Control](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/accessControl.md)
+
+# [Types](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/types.md)
