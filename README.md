@@ -1,7 +1,7 @@
 # Computer-Science-with-iOS
 
 
-# iOS Knowledge
+# :iphone: iOS Knowledge
 *A collection of iOS knowledge bellow.*
 
 ## [Memory Management](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/memoryManagement.md)
@@ -32,4 +32,4 @@
 
 ## [Swift UI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)
 
-# [Resources](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/resources.md)
+# :paperclip: [Resources](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/resources.md)
