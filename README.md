@@ -2,7 +2,7 @@
 
 # Data Structures
 
-> :link: [Linked List](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/linkedList.md)
+> :link: [Linked List](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/linkedlist.md)
 >
 > :books: [Stack](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/stack.md)
 >
