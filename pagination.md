@@ -15,3 +15,5 @@ You wouldn't want to preload thousands of data input becuase a couple of reasons
 3. The app would have to process all of that data.
 
 One thing to keep in mind of pagination is wether or not the data base is updating. If it is being updated, you'd want to account for if passing in an index and it containing duplicate values.
+
+*[next page: access control](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/accessControl.md)*
