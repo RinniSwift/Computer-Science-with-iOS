@@ -1,6 +1,20 @@
 
 # :paperclip: Resources
 
+# Data structures
+
+### Stack
+
+- https://www.geeksforgeeks.org/stack-data-structure/
+
+### Queue
+
+- https://www.geeksforgeeks.org/queue-data-structure/
+
+### Heap
+
+- https://www.raywenderlich.com/586-swift-algorithm-club-heap-and-priority-queue-data-structure
+
 # Software Architecture Patterns
 
 ### Protocol oriented programming
