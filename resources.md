@@ -24,8 +24,9 @@
 
 # Memory Management
 
-### Retain cycles
-
+- https://www.appcoda.com/memory-management-swift/
+- https://medium.com/flawless-app-stories/memory-leaks-in-swift-bfd5f95f3a74
+- https://medium.com/@stremsdoerfer/understanding-memory-leaks-in-closures-48207214cba
 - [https://medium.com/@vinodhswamy/strong-cycle-retain-cycle-in-swift-f452f07518b2](https://medium.com/@vinodhswamy/strong-cycle-retain-cycle-in-swift-f452f07518b2)
 
 # Reference and Value Types
