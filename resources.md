@@ -34,6 +34,8 @@
 ### Classes and Structs
 
 - [https://www.hackingwithswift.com/read/0/16/classes](https://www.hackingwithswift.com/read/0/16/classes)
+- https://developer.apple.com/swift/blog/?id=10
+- https://www.raywenderlich.com/9481-reference-vs-value-types-in-swift
 
 # UI
 
