@@ -7,6 +7,8 @@
 > :books: [Stack](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/stack.md)
 >
 > :couple: [Queue](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/queue.md)
+>
+> :signal_strength: [Heap](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/heap.md)
 
 
 # :iphone: iOS Knowledge
