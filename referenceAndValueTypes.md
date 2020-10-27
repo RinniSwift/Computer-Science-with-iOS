@@ -57,6 +57,10 @@ The last one isn't as safe and you have to be sure that the class will contain t
 
 You can inherit from classes, and build on top of it's existing functionality by using the `override` on functions of the super class. You can also provide other properties and create your own intializer but it must call your super classes initializer — calling `super.init(...)` in your newly created initializer.
 
+> Use reference types when comparing instance identity with '==='. When you care about everything being identical down to its memory address.\
+> Use reference types when you want to create a shared state. When you want to create a single instance that can be accessed and mutated in multiple parts of the app. When you want everything holding that instance to stay in sync.\
+> Reference types' properties can be mutated even declaring it as *let*. This is because when reference values are declared as constants, the reference must remain constant(can't change the instance) but you can mutate the instance.
+
 ## Structs
 
 Structs offer a memberwise initializer by default. As earlier mentioned, structs are value types, meaning that every modification is unique to the variable that it's stored. Keep in mind when creating functions that are going to modify the stored properties, you must prepend the function with `mutating`.
@@ -71,5 +75,10 @@ struct Person {
    }
 }
 ```
+
+> Use value types when comparing instance data with '=='. When you care about comparing the internal values over where the value is stored in memory.\
+> Use value types when copies should have indipendent state. When you are trying to create unique objects from that instance.\
+> Use value types when code will use this data across multiple threads. Value types can avoid potential bugs when used across multiple threads since the data is not relied on another part of the application.\
+> Value types' declared as constants mean that the instance must remain constant no properties of the instance will ever change.
 
 *[next page: gcd](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)*
