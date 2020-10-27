@@ -37,6 +37,10 @@
 - https://developer.apple.com/swift/blog/?id=10
 - https://www.raywenderlich.com/9481-reference-vs-value-types-in-swift
 
+### Initializers
+
+- https://medium.com/@abhimuralidharan/initializers-in-swift-part-1-intro-convenience-and-designated-intializers-9adf5632fb52
+
 # UI
 
 ### Frame vs Bounds
