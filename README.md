@@ -42,6 +42,8 @@
 > **[Testing](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/testing.md)**
 > 
 > **[Swift UI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)**
+>
+> **[Optionals](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/optionals.md)**
 
 # :paperclip: Resources
 
