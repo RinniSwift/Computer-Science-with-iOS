@@ -44,6 +44,8 @@
 > **[Swift UI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)**
 >
 > **[Optionals](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/optionals.md)**
+>
+> **[Data handling within apps](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataHandling.md)**
 
 # :paperclip: Resources
 

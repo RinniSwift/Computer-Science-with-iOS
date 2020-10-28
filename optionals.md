@@ -135,3 +135,5 @@ i ?? j ?? k    // Optional(2)
 ```
 This *nil-Coalescing chaining returns the first value that is non-nil*\
 You can think of this as similar to the "or" statement where if one value is non-nil, it returns that. And also can think of the "if let" as an "and" statement. Where when you chain if let entries, they all must be non-nil.
+
+*[next page: data handling within app](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataHandling.md)*

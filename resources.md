@@ -57,3 +57,10 @@
 - [https://www.hackingwithswift.com/example-code/uikit/whats-the-difference-between-frame-and-bounds](https://www.hackingwithswift.com/example-code/uikit/whats-the-difference-between-frame-and-bounds)
 - [https://stackoverflow.com/a/28917673/3681880](https://stackoverflow.com/a/28917673/3681880)
 - [https://medium.com/@suragch/frame-vs-bounds-in-ios-107990ad53ee](https://medium.com/@suragch/frame-vs-bounds-in-ios-107990ad53ee)
+
+# Data handling within app
+
+- https://medium.com/swift2go/when-i-say-delegate-you-say-what-54df1108ba58
+- https://www.hackingwithswift.com/example-code/language/what-is-a-singleton
+- https://matteomanferdini.com/swift-singleton/
+- https://www.swiftbysundell.com/posts/observers-in-swift-part-1
