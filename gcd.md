@@ -2,7 +2,24 @@
 
 # GCD
 
-Grand Central Dispatch manages the execution of tasks on the apps main thread or background thread. They are ***task-based paradigm*** which allows to write concurrent code without thinking about threads.
+Grand Central Dispatch manages the execution of tasks on the apps main thread or background thread. They are ***task-based paradigm*** which allows to write concurrent code without thinking about threads.\
+Moves the thread management code down to the system level. All you have to do is define tasks you want to execute and put them in the appropriate dispatch queue. GCD takes care of creating the needed threads and scheduling tasks to run on those threads.\
+GCD organizes tasks into specific queues, and later on the tasks on the queues will get executed in a proper and available thread from the pool. The dispatch framework is a very fast and efficient concurrency framework
+
+### Synchronous and Asynchronous execution
+Each work item can be executed either synchronously(serially) or asynchronously(concurrently). 
+with synchronous tasks, you'll block the execution queue, but with async tasks, your call will instantly return and the queue can automatically continue the execution of remaing tasks.
+
+###### Synchronous
+synchronous work items are called with the sync method. The program waits until the execution finishes before method call returns to continue the remaing tasks. functions with return types are most likely to be synchronous
+
+###### Asynchronous
+asynchronous work items are called with the async method. The method returns immediately. completion blocks are most likely to be asynchronous.
+With dispatch queues, you can execute your code synchronously or asynchronously. with synchronous execution, the queue waits for the work. With asynchronous, the code returns emmidiately without waiting for the task to be complete.
+
+> On every dispatch queue, tasks will be executed in the same order as you add them to the queue (FIFO) the first task in the line will be executed first but 
+> the task completion is not guaranteed. task completion is up to the code complexity. not order.
+
 
 ### Queues
 
@@ -20,27 +37,53 @@ queue1.async { ... }
 queue1.async(execute: DispatchWorkItem)
 ```
 
+### Serial Queues
+Also known as *private dispatch queues* executes one task at a time in the order that they were added to the queue. The currently executed tasks are run on distinct threads and serial queues are often used to synchronize access to a specific resource.
+
+### Concurrent queues
+Also known as *global dispatch queues* execute one or more tasks concurrently. But tasks are still started in order of how they were added. 
+
+### Main Dispatch Queue 
+The main dispatch queue is a globally available serial queue that executes tasks on the application’s main thread. 
+
 ### QoS
 
-Categorizes tasks to be performed on DispatchQueues. Higher priority work requires more energy so choose accordingly to the use case as it directly impacts apps responsiveness and app energy.
+A Quality of Service class allows you to categorize work to be performed by NSOperation, NSOperationQueue, NSThread objects, and dispatch queues.\
+When setting up global dispatch queues, you don't specify the priority directly but you are required to specify a quality of service which guides GCD into determining the priority level to give the task.\
+Higher priority work requires more energy so choose accordingly to the use case as it directly impacts apps responsiveness and app energy.\
+GCD provides 4 quality of services:
 
-* **user Interactive**
-   user-interactive tasks, such as animations, event handling, or updating your app's user interface.
+- ```.userInteractive```: user-interactive tasks, such as animations, event handling, or updating your app's user interface. work that is interacting with the user and requires instant visual layout such as tasks that update the UI on the main thread; refreshing the ui, performing animations. Focuses on responsiveness and performance.
+- ```.userInitiated```: tasks that prevent the user from actively using your app. Work that the user initiated and requires immediate results. e.x. opening a document, doing something when user taps on button. The work is required to continue  user interaction. Focuses on responsiveness and performance.
+- ```.utility```: work that may take some time that doesn't require emmediate results. e.g. downloading or importing data. Focuses on a balance between responsiveness, performance, and energy efficiency.
+- ```.background```: for maintenance or cleanup tasks that you create. work that operates in the background and isn't visible to the user. e.x. indexing, synchronizing, and backups. Focuses on energy efficiency.
 
-* **user Initiated**
-   tasks that prevent the user from actively using your app.
+*Explanation*: Use QoS level of userInitiated or lower for optimization.
 
-* **default**
-   default
+And 2 special quality of services:
+- ```.default```: the priority falls between user-initiated and utility.
+- ```.unspecified```: this represents the absence of qos and cues the system an environmental qos should be inferred.
+These two special cases we won't be exposed to but they do exist.
 
-* **utility**
-   tasks that the user does not track actively.
+> If your app uses operations and queues to perform work, you can specify a QoS for that work. 
+> NSOperation and NSOperationQueue both have a property called ```qualityOfService``` of type ```NSQualityOfService``` 
+> ```swift
+> let myOperation: NSOperation = MyOperation()
+> myOperation.qualityOfService = .Utility
+> ```
+> DisptachQueues have a property you declare when calling initializing the queue
+> ```swift
+> let queue = DispatchQueue.global(qos: .utility)
+> ```
+> NSThread have a property of ```qualityOfService``` of type ```NSQualityOfService```
+> ```swift
+> let queue = DispatchQueue.global(qos: .utility)
+> ```
 
-* **background**
-   for maintenance or cleanup tasks that you create.
-
-* **unspecified**
-   literally nothing.
+#### Priority Inversions
+When high priority work becomes dependant on lower priority work, or it becomes the result of lower priority work, a *priority inversion* occurs. As a result, blocking, spinning, or polling may occur.\
+In the case of synchronous work, the system will resolve by raising the QoS of the lower priority queue for the duration of the inversion. \
+In the case of asynchronous work, the system will resolve on a serial queue.
 
 ### Threads
 
@@ -79,7 +122,8 @@ func updateSomething() {
 
 ### DispatchGroup
 
-Sometimes we need to execute all heavy tasks before being able to continue. This is where DispatchGroups come in handy. You can call the `wait` or `notify` method to know that all tasks have complete in the group
+Sometimes we need to execute all heavy tasks before being able to continue. This is where DispatchGroups come in handy. You can call the `wait` or `notify` method to know that all tasks have complete in the group.\
+Dispatch groups are used when you have a load of things you want to do that can happen all at once.
 
 This is how you do a **blocking waiting**
 
@@ -145,8 +189,40 @@ group.notify(queue: .main) { ... }
 
 ### DispatchSemaphore
 
-Sometimes you want to limit work in progress when you know there are a lot of tasks you want to execute during the same time without trying to thread explode — which is when the pool hits the limit of 65 threads.
+Semaphores acts as the decision maker about what shared resource gets displayed on the thread indicating with the wait() and signal() function. They consist of threads queue and counter value.
+- *Threads Queue*: Used by the semaphore to keep track of what has acces to the shared resource first. This is in FIFO order. (First thread entered will be the first to get access to the shared resource once avaiable)
+- *Counter Value*: used by the semaphore to decide if a thread should get access to the shared resource or not. This value changes when called *signal()* or *wait()* functions.\
+\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call *wait()* before using the shared resource. To ask if the shared resource is available or not. should not be called on the main thread since it will freeze the app.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call *signal()* after using the resource. Signaling the semaphore that we are done interacting with it.
 
+**Thread safe**: *Code that can be safely called from multiple threads and not cause any issues.*
+
+- Below Is a sample simulation of 2 people using a Switch--shared resource.
+
+```swift
+let semaphore = DispatchSemaphore(value: 1)
+DispatchQueue.global().async {
+    semaphore.wait()
+    sleep(1) // Person 1 playing with Switch
+    print("Person 1 - done with Switch")
+    semaphore.signal()
+}
+DispatchQueue.global().async {
+    semaphore.wait()
+    print("Person 2 - wait finished")
+    sleep(1) // Person 2 playing with Switch
+    print("Person 2 - done with Switch")
+    semaphore.signal()
+}
+```
+
+*Explanation*: declare the semaphore counter value to 1 indicating that we only want the resource to be accessible by one thread. Then we call the ```wait()``` to make sure we can access the resource and execute the task and don't forget to call the ```signal()``` to signal that we are done using the resource.\
+Semaphores are used when you have a resource that can be accessed by N threads at the same time. They are used mainly for multiple tasks that use the same resource.
+
+More on using semaphores [here](https://github.com/RinniSwift/iOS/blob/master/Concurrency/semaphores.playground/Contents.swift).
+
+Sometimes you want to limit work in progress when you know there are a lot of tasks you want to execute during the same time without trying to thread explode — which is when the pool hits the limit of 65 threads.\
 Below, we are limiting the amount of concurrent tasks it can execute at a time.
 
 ```swift

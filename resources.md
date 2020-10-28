@@ -29,6 +29,15 @@
 - https://medium.com/@stremsdoerfer/understanding-memory-leaks-in-closures-48207214cba
 - [https://medium.com/@vinodhswamy/strong-cycle-retain-cycle-in-swift-f452f07518b2](https://medium.com/@vinodhswamy/strong-cycle-retain-cycle-in-swift-f452f07518b2)
 
+# GCD
+
+- https://github.com/RinniSwift/iOS/blob/master/Concurrency/operations.playground/Contents.swift
+- https://github.com/RinniSwift/iOS/blob/master/Concurrency/BlockOperation_ex2.playground/Contents.swift
+- https://github.com/RinniSwift/iOS/blob/master/Concurrency/operationQA.md
+- https://medium.com/swiftly-swift/a-quick-look-at-semaphores-6b7b85233ddb
+- https://medium.com/@roykronenfeld/semaphores-in-swift-e296ea80f860
+- https://github.com/RinniSwift/iOS/blob/master/Concurrency/semaphores.playground/Contents.swift
+
 # Reference and Value Types
 
 ### Classes and Structs
