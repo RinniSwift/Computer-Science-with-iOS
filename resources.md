@@ -64,3 +64,9 @@
 - https://www.hackingwithswift.com/example-code/language/what-is-a-singleton
 - https://matteomanferdini.com/swift-singleton/
 - https://www.swiftbysundell.com/posts/observers-in-swift-part-1
+
+# Swift keywords
+
+- https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-declaration
+- https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID264
+- https://www.objc.io/books/advanced-swift/
