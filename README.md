@@ -47,7 +47,9 @@
 >
 > **[Data handling within apps](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataHandling.md)**
 >
-> **[Swift keywords](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftKeywords.md)**
+> **[Swift Keywords](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftKeywords.md)**
+>
+> **[Collection Protocols](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/collectionProtocols.md)**
 
 # :paperclip: Resources
 

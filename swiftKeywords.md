@@ -152,3 +152,5 @@ func NAME(PARAMS) throws -> RETURNTYPE {
 
 ## Instance Properties and Type Properties
 *Instance properties* are properties that belong to an instance of a type. This provides distinction between each instance of the type. But, you can also define properties that belong to the type itself, not to any one instance of that type. And there will only be 1 copy of these properties no matter how many instances. These are called *type properties*
+
+*[next page: collection protocols](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/collectionProtocols.md)*
