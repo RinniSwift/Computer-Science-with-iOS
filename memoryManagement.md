@@ -109,9 +109,11 @@ e.g.2 dealing with grand central dispatch. The view controller doesnt have any r
 > Memory management is tightly connected with the concept of Ownership. ARC is Swift ownership system. ARC is implemented on the compiler level. The swiftc compiler calls methods wherever appropriate.
 
 > ❓**Questions**
-> - Where does data that is initialized as zero stored?
->   This is uninitialized data and it is stored in the BSS area, in the data segment.
-> - How many levels does Swift have for reference types?
-> - What is the difference between week and unowned?
+> - Where does data that is initialized as zero stored?\
+>   *This is uninitialized data and it is stored in the BSS area, in the data segment.*
+> - How many levels does Swift have for reference types?\
+>   *2 Levels — strong, and weak, weak references having an additional flavor called unowned.*
+> - What is the difference between week and unowned?\
+>   *Weak references are objects that can become nil when the object it points to is no longer alive. also called Zeroing. Unowned references can not become nil / is non-zeroing. We usually use unowned when both values have the same lifetime.*
 
 *[next page: reference and value types](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/referenceAndValueTypes.md)*
