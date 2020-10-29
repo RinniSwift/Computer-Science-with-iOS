@@ -153,7 +153,6 @@ let desHuman = Human(name: "Rinni")    // calls designated init. name = "Rinni"
 let conHuman = Human()             // calls convenience init. name = "not set"
 ```
 Above you can see that we designed the convenience init to call the designated init.\
-\
 
 **Initializer Inheritance**\
 how to use initializers with subclasses
@@ -184,3 +183,5 @@ class Man: Human {
     }
 }
 ```
+
+*[next page: gcd](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)*

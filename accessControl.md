@@ -28,7 +28,8 @@ A module is a single unit of code distribution — a framework or applicatio
 
 > ❓ **Questions**
 > 
-> - What is the default access level when you declare a new type, propery, or function?
+> - What is the default access level when you declare a new type, propery, or function?\
+>   *Internal access level.*
 
 > **Good reads**
 >

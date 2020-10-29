@@ -275,15 +275,15 @@ DispatchQueue.main.sync {
 
 > :pushpin: **SUMMARY**: every app has a main thread.
 
-> :question: **Questions**<br />
-> How many types of queues are there?<br />
->     *There are two types. Serial queues and concurrent queues. Serial queues execute tasks after the one before it has completed. Concurrent queues don't wait for one to finish to execute.*<br />
-> How many queues are pre-created in GCD?<br />
-> *There are initially 5 queues ready to use, 1 serial queue — main queue, and 4 concurrent queues having different priorities — high, default, low, background.*<br />
-> Is the main queue a serial or concurrent queue?<br />
-> *It's a serial queue. This is where all UI related tasks are executed.*<br />
-> What is a thread explosion, and how can you limit this?
-> *Thread explosion is when the pool exceeds the limit of 65 threads. This can be handled and limited by using a semaphore by giving the value to the semaphore to limit it down.*
+> :question: **Questions**\
+> - How many types of queues are there?\
+>       *There are two types. Serial queues and concurrent queues. Serial queues execute tasks after the one before it has completed. Concurrent queues don't wait for one to finish to execute.*
+> - How many queues are pre-created in GCD?\
+>       *There are initially 5 queues ready to use, 1 serial queue — main queue, and 4 concurrent queues having different priorities — high, default, low, background.*
+> - Is the main queue a serial or concurrent queue?\
+>       *It's a serial queue. This is where all UI related tasks are executed.*
+> - What is a thread explosion, and how can you limit this?\
+>       *Thread explosion is when the pool exceeds the limit of 65 threads. This can be handled and limited by using a semaphore by giving the value to the semaphore to limit it down.*
 
 # Combine Framework
 
