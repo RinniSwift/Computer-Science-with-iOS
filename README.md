@@ -31,6 +31,8 @@
 >
 > **[Enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)**
 >
+> **[Higher Order Functions](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/higherOrderFunctions.md)**
+>
 > **[Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)**
 >
 > **[Data Persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)**

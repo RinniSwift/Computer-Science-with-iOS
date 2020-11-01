@@ -79,4 +79,4 @@ enum Filter: CaseIterable {
 
 Because enums can't know the value of the associated type, it can't infer the all cases. You must define it yourself.
 
-*[next page: closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)*
+*[next page: higher order functions](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/higherOrderFunctions.md)*

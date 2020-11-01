@@ -1,4 +1,4 @@
-*[previous page: enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)*
+*[previous page: higher order functions](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/higherOrderFunctions.md)*
 
 # Closures
 

@@ -50,6 +50,12 @@
 
 - https://medium.com/@abhimuralidharan/initializers-in-swift-part-1-intro-convenience-and-designated-intializers-9adf5632fb52
 
+# Higher Order Functions
+
+- https://www.appcoda.com/higher-order-functions-swift/#Filter
+- https://docs.swift.org/swift-book/LanguageGuide/Closures.html
+- https://docs.swift.org/swift-book/LanguageGuide/Functions.html
+
 # UI
 
 ### Frame vs Bounds
