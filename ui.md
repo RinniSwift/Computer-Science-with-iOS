@@ -29,4 +29,8 @@ Why knowing this is important:
 
 The main differences would be how their layout. Tableviews only support vertical scrolling whereas collectionviews support both horizontal scrolling and vertical scrolling in the same collectionView. Tableviews are also easier to setup and simpler as I believe they're collectionviews under the hood with just less customable. Collectionviews are more complex where as you'd use collectionviews if you want to achieve two way scroll within different sections of the collectionview.
 
+**Commonalities**
+- reuseIdentifier (`dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell`)\
+Limits allocating new views for each row. As cells scroll off the view, they get enqueued onto an internal queue and from this function, we dequeue from that queue if there contains one. If not, it returns a newly allocated view.
+
 *[next page: enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)*
