@@ -55,6 +55,7 @@
 - https://www.appcoda.com/higher-order-functions-swift/#Filter
 - https://docs.swift.org/swift-book/LanguageGuide/Closures.html
 - https://docs.swift.org/swift-book/LanguageGuide/Functions.html
+- https://medium.com/@rinradaswift/higher-order-functions-map-filter-and-reduce-b4f4cc0e00bd
 
 # UI
 
