@@ -8,6 +8,47 @@ The system uses a tree data structure where the root node is the window. layer c
 
 When user interaction occur, the view hierarchy gets traversed starting from root first, which is the UIWindow.
 
+## View Lifecycles
+
+*view controller lifecycle is an event with several steps from the point of creation to deletion.*
+
+> **viewDidLoad**\
+> Notifies view controller that the view has been created and loaded into memory.\
+> There shouldn't be any code that sets the frames or bounds of a child view as this function doesn't assure that the view has already been added to the user interface.
+>
+> **viewWillAppear**\
+> Notifies view controller that the view is about to be added to a view hierarchy.
+>
+> **viewDidAppear**\
+> Notifies view controller that the view has been added to a view hierarchy.
+>
+> **viewDidDisappear**\
+> Notifies view controller that the view has been removed from a view hierarchy.
+>
+> **viewWillDisappear**\
+> Notifies the view controller that it's view is about to be removed from a view hierarchy.
+>
+> **viewWillLayoutSubviews**\
+> Notifies the view controller that it's view is about to layout subviews.\
+> Call this method before the view lays out its subviews.
+>
+> **viewDidLayoutSubviews**\
+> Notifies the view controller that it's view has just laid out its subviews.\
+> Call this method after the view lays out its subviews to adjust the views subviews layout.
+>
+> **isBeingDismissed**\
+> A Bool value indicating wether the view controller is being dismissed.
+>
+> **isBeingPresented**\
+> A Bool value indicating wether the view controller is being presented.
+>
+> **isMovingFromParent**\
+> A Bool value indicating wether the view controller is being removed from a parent view controller.
+>
+> **isMovingToParent**\
+> A Bool value indicating wether the view controller is being moved to a parent view controller.
+
+
 ## Frame vs Bounds
 
 both are properties of `UIView` and they both returb a `CGRect`

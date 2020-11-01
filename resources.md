@@ -59,6 +59,11 @@
 
 # UI
 
+### View Lifecycle
+
+- https://en.proft.me/2019/11/6/understanding-ios-viewcontroller-life-cycle/
+- https://developer.apple.com/documentation/uikit/uiviewcontroller
+
 ### Frame vs Bounds
 
 - [https://www.hackingwithswift.com/example-code/uikit/whats-the-difference-between-frame-and-bounds](https://www.hackingwithswift.com/example-code/uikit/whats-the-difference-between-frame-and-bounds)
