@@ -93,3 +93,23 @@
 # :paperclip: Resources
 
 > **[Resource List](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/resources.md)**
+
+## Contact
+
+<p align="left">
+<a href="https://www.linkedin.com/in/rinni-swift/">
+<img src="https://img.shields.io/badge/LinkedIn-blue?style=social&logo=LinkedIn&labelColor=0077B5">
+</a>
+</p>
+
+<p align="left">
+<a href="https://github.com/RinniSwift">
+<img src="https://img.shields.io/badge/GitHub-blue?style=social&logo=GitHub&labelColor=black">
+</a>
+</p>
+
+<p align="left">
+<a href="https://medium.com/@rinradaswift">
+<img src="https://img.shields.io/badge/Medium-blue?style=social&logo=Medium&labelColor=black">
+</a>
+</p>
