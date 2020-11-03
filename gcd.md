@@ -20,6 +20,25 @@ With dispatch queues, you can execute your code synchronously or asynchronously.
 > On every dispatch queue, tasks will be executed in the same order as you add them to the queue (FIFO) the first task in the line will be executed first but 
 > the task completion is not guaranteed. task completion is up to the code complexity. not order.
 
+#### How to tell that a function is synchronous vs. asynchronous.
+
+There are a couple of key components for each. Keep in mind that these are the common cases - there are outliers.
+
+**Key components for a synchronous call/function:**
+- You can store the value of the call/function as a value -- there's a return type.
+- There usually are no completion handlers.
+
+**Key components for an asynchronous call/function:**
+- The function does not contain a return type but rather a completion block.
+- When calling the function, you usually don't store it in a variable, but you get it's result from a completion block.
+
+> **Important**:
+> The function `dataWithContentsOfURL:(NSURL *)url` is synchronous
+> which means if you call network based URLs, it shouldn't be done on the main thread as it will result in latency.
+> Often times, I'd see this call when creating a UIImage type from an image URL which isn't handled on the background thread. This can be looked across as you may think it's done asynchronously - which it isn't!\
+> Read further on `dataWithContentsOfURL:(NSURL *)url` [on Apple Docs](https://developer.apple.com/documentation/foundation/nsdata/1547245-datawithcontentsofurl)\
+> We want to make sure that there's never an asynchronous call on the main thread as it will cause a short latency or long app freeze depending on the task and user's network.
+
 
 ### Queues
 

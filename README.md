@@ -29,6 +29,7 @@
 >
 > **[GCD](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)**\
 > &nbsp;&nbsp;&nbsp;Synchronous and asynchronous execution\
+> &nbsp;&nbsp;&nbsp;Differentiating synchronous and asynchronous calls/functions\
 > &nbsp;&nbsp;&nbsp;Queues - serial and concurrent\
 > &nbsp;&nbsp;&nbsp;QoS\
 > &nbsp;&nbsp;&nbsp;Priority inversion\
