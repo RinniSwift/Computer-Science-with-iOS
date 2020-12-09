@@ -77,7 +77,10 @@
 >
 > **[Testing](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/testing.md)**
 > 
-> **[Swift UI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)**
+> **[Swift UI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)**\
+> &nbsp;&nbsp;&nbsp;View Construction\
+> &nbsp;&nbsp;&nbsp;Compared to UIKit\
+> &nbsp;&nbsp;&nbsp;View Layout
 >
 > **[Optionals](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/optionals.md)**
 >
