@@ -8,6 +8,29 @@ The system uses a tree data structure where the root node is the window. layer c
 
 When user interaction occur, the view hierarchy gets traversed starting from root first, which is the UIWindow.
 
+> **UIWindow** is the backdrop for your app’s user interface and the object that dispatches events to your views.\
+> [Apple docs](https://developer.apple.com/documentation/uikit/uiwindow)
+
+### Hit testing
+
+The function signature:
+```
+func hitTest(_ point: CGPoint, 
+            with event: UIEvent?) -> UIView?
+```
+
+Hit-testing is UIKit's touch handling subsystem which is an algorithm that traverses the view hierarchy and finds/returns the deep most view that contains within the touch point and nil if it was completely outside the recievers view hierarchy.
+
+**properties on the view that will be ignored in hit-testing**\
+`isHidden` property is true\
+`userInteractionEnabled` property is false\
+`alpha` is less than 0.01
+
+> `userInteractionEnabled = false` on a view cascades down it's subviews.
+> All subviews will have *userInteractionEnabled* equal to false as well.
+
+
+
 ## View Lifecycles
 
 *view controller lifecycle is an event with several steps from the point of creation to deletion.*

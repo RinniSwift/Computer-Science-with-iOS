@@ -59,10 +59,15 @@
 
 # UI
 
-### View Lifecycle
-
+- https://developer.apple.com/documentation/uikit/uiview/1622469-hittest
+- https://khanlou.com/2018/09/hacking-hit-tests/
+- https://medium.com/@nguyenminhphuc/how-to-pass-ui-events-through-views-in-ios-c1be9ab1626b
 - https://en.proft.me/2019/11/6/understanding-ios-viewcontroller-life-cycle/
 - https://developer.apple.com/documentation/uikit/uiviewcontroller
+- Objc Thinking in Swift book
+- https://developer.apple.com/documentation/swiftui/viewbuilder
+- https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html
+- https://developer.apple.com/documentation/swift/mirror
 
 ### Frame vs Bounds
 
