@@ -1,4 +1,4 @@
-*[previous page: optionals](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/optionals.md)*
+*[previous page: api availability](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/apiAvailability.md)*
 
 # Passing data between view controllers
 

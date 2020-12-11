@@ -82,7 +82,18 @@
 > &nbsp;&nbsp;&nbsp;Compared to UIKit\
 > &nbsp;&nbsp;&nbsp;View Layout
 >
-> **[Optionals](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/optionals.md)**
+> **[Optionals](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/optionals.md)**\
+> &nbsp;&nbsp;&nbsp;If let\
+> &nbsp;&nbsp;&nbsp;If var\
+> &nbsp;&nbsp;&nbsp;While let\
+> &nbsp;&nbsp;&nbsp;While var\
+> &nbsp;&nbsp;&nbsp;Doubly nested optionals\
+> &nbsp;&nbsp;&nbsp;Optional chaining\
+> &nbsp;&nbsp;&nbsp;Nil-coalescing operator
+>
+> **[API Availability](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/apiAvailability.md)**
+> &nbsp;&nbsp;&nbsp;Checking api availability\
+> &nbsp;&nbsp;&nbsp;Marking func/class as available in specific iOS
 >
 > **[Data handling within apps](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataHandling.md)**\
 > &nbsp;&nbsp;&nbsp;Delegates and protocols\
