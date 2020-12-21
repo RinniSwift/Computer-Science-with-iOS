@@ -64,7 +64,8 @@
 >
 > **[Data Persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)**\
 > &nbsp;&nbsp;&nbsp;Core data\
-> &nbsp;&nbsp;&nbsp;User defaults
+> &nbsp;&nbsp;&nbsp;User defaults\
+> &nbsp;&nbsp;&nbsp;File Manager
 >
 > **[Software Architectural Patterns](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/softwareArchitectPatterns.md)**\
 > &nbsp;&nbsp;&nbsp;App architect intro\
