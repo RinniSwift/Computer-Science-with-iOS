@@ -75,6 +75,11 @@
 - [https://stackoverflow.com/a/28917673/3681880](https://stackoverflow.com/a/28917673/3681880)
 - [https://medium.com/@suragch/frame-vs-bounds-in-ios-107990ad53ee](https://medium.com/@suragch/frame-vs-bounds-in-ios-107990ad53ee)
 
+# Data persistence
+
+- https://developer.apple.com/library/archive/documentation/FileManagement/Conceptual/FileSystemProgrammingGuide/FileSystemOverview/FileSystemOverview.html
+- http://iosbrain.com/blog/2018/05/29/the-ios-file-system-in-depth/
+
 # Data handling within app
 
 - https://medium.com/swift2go/when-i-say-delegate-you-say-what-54df1108ba58
