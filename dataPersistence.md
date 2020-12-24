@@ -47,6 +47,8 @@ Put app-created support files in `Library/Application support/`. This should con
 
 Put temporary data in `tmp/`. This contains files that do not need to persist for an extended amount of time.
 
+> Callout: copying and moving operations on FileManager take a long time so it's recommended to call on a concurrent dispatch queue and not main thread.
+
 ### Property List (Plists)
 
 ## Server Persistance
