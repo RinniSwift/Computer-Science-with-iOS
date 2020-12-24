@@ -106,8 +106,8 @@
 >
 > **[Collection Protocols](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/collectionProtocols.md)**
 >
-> **[Foundation](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/foundation.md)**
-> &nbsp;&nbsp;&nbsp;NSKeyedArchiver and NSKeyedUnarchiver\
+> **[Foundation](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/foundation.md)**\
+> &nbsp;&nbsp;&nbsp;NSKeyedArchiver and NSKeyedUnarchiver
 
 # :paperclip: Resources
 
