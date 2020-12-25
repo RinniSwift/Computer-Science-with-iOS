@@ -40,6 +40,15 @@ There are a couple of key components for each. Keep in mind that these are the c
 > We want to make sure that there's never an asynchronous call on the main thread as it will cause a short latency or long app freeze depending on the task and user's network.
 
 
+### Terminoligy
+
+From [The Documentation Archive](https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091)
+
+- The term *thread* is used to refer to a separate path of execution for code. The underlying implementation for threads in OS X is based on the POSIX threads API.
+- The term *process* is used to refer to a running executable, which can encompass multiple threads.
+- The term *task* is used to refer to the abstract concept of work that needs to be performed.
+
+
 ### Queues
 
 You enqueue ***DispatchWorkItem***s to a ***DispatchQueue*** or a ***DispatchGroup*** for execution and dequeuing is handled automatically. They can be categorized by QoS which determines the order/ priority of execution. Order of execution is FIFO. **Concurrent queues** are not guaranteed that tasks will finish in order since they are executed by not having to wait for other tasks to complete. While **serial queues** execute in order of added items with having to wait for tasks to finish before executing the next. There are initially 5 queues ready to use, 1 serial queue — main queue, and 4 concurrent queues having different priorities — **high**, **default**, **low**, **background**.
