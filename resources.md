@@ -37,6 +37,7 @@
 - https://medium.com/swiftly-swift/a-quick-look-at-semaphores-6b7b85233ddb
 - https://medium.com/@roykronenfeld/semaphores-in-swift-e296ea80f860
 - https://github.com/RinniSwift/iOS/blob/master/Concurrency/semaphores.playground/Contents.swift
+- https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1
 
 # Reference and Value Types
 
