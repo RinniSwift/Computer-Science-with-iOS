@@ -343,7 +343,7 @@ There're mainly five pieces to the combine framework
 
 ```swift
 let url = URL(string: "https://api.github.com/repos/johnsundell/publish")!
-let publisher = URLSesssion.shared.dataTaskPublisher(for: url)
+let publisher = URLSession.shared.dataTaskPublisher(for: url)
 ```
 
 *Attach subscriptions to it using the `sink` API*
@@ -399,4 +399,4 @@ Now within the receiveValue completion, it will be handled on the main queue.
 
 > :bulb: Combine is very useful when wanting to extract out access information in the completion. Which is what we want. To have as little code as possible.
 
-*[next page: url components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)*
+*[next page: pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)*

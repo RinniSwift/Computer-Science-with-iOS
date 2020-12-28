@@ -41,3 +41,8 @@ func readImages() throws -> [UIImage] {
 
 
 > Here is a [sample project](https://github.com/RinniSwift/SwiftUISample) that I use `NSKeyedArchiver` and `NSKeyedUnarchiver` to write data to the file system through `FileManager`. Check [this file](https://github.com/RinniSwift/SwiftUISample/commit/a5dee3d62ebb182f2d321064dccd7caaf83c3cae) specifically.
+
+
+### URLComponents
+
+[URLComponents](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)

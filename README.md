@@ -39,8 +39,6 @@
 > &nbsp;&nbsp;&nbsp;Semaphores\
 > &nbsp;&nbsp;&nbsp;Combine framework
 >
-> **[URL Components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)**
->
 > **[Pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)**
 >
 > **[Access Control](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/accessControl.md)**
@@ -107,7 +105,8 @@
 > **[Collection Protocols](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/collectionProtocols.md)**
 >
 > **[Foundation](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/foundation.md)**\
-> &nbsp;&nbsp;&nbsp;NSKeyedArchiver and NSKeyedUnarchiver
+> &nbsp;&nbsp;&nbsp;NSKeyedArchiver and NSKeyedUnarchiver\
+> &nbsp;&nbsp;&nbsp;[URL Components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)
 
 # :paperclip: Resources
 

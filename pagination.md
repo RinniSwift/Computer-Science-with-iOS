@@ -1,4 +1,4 @@
-*[previous page: url components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)*
+*[previous page: gcd](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)*
 
 # Pagination
 
