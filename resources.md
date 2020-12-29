@@ -88,6 +88,11 @@
 - https://matteomanferdini.com/swift-singleton/
 - https://www.swiftbysundell.com/posts/observers-in-swift-part-1
 
+# Foundation
+
+- https://developer.apple.com/documentation/foundation/urlsession
+- https://useyourloaf.com/blog/urlsession-waiting-for-connectivity
+
 # Swift keywords
 
 - https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-declaration
