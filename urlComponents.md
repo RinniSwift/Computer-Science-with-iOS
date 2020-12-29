@@ -1,3 +1,4 @@
+*[previous page: nskeyedarchiver and nskeyedunarchiver](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/archiver.md)*
 
 # URL Components
 
@@ -15,3 +16,5 @@ URL components in Swift are comprised of
 
 *This image is from an article I published on [creating a clean networking layer in Swift 5](https://medium.com/hackernoon/about-the-networking-layer-in-swift-5-4bb2704a1a4f)*.\
 *And implemented in a [sample app here](https://github.com/RinniSwift/NetworkChallenge)*.
+
+*[next page: url session](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlSession.md)*
