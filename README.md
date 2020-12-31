@@ -107,7 +107,8 @@
 > **[Foundation](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/foundation.md)**\
 > &nbsp;&nbsp;&nbsp;[NSKeyedArchiver and NSKeyedUnarchiver](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/archiver.md)\
 > &nbsp;&nbsp;&nbsp;[URL Components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)\
-> &nbsp;&nbsp;&nbsp;[URL Session](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlSession.md)
+> &nbsp;&nbsp;&nbsp;[URL Session](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlSession.md)\
+> &nbsp;&nbsp;&nbsp;[Integer](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/integer.md)
 
 # :paperclip: Resources
 
