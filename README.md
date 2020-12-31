@@ -60,6 +60,8 @@
 >
 > **[Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)**
 >
+> **[Error Handling](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/errorHandling.md)**
+>
 > **[Data Persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)**\
 > &nbsp;&nbsp;&nbsp;Core data\
 > &nbsp;&nbsp;&nbsp;User defaults\

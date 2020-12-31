@@ -1,4 +1,4 @@
-*[previous page: closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)*
+*[previous page: error handling](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/errorHandling.md)*
 
 # Data Persistance
 

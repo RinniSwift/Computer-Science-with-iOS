@@ -15,6 +15,12 @@
 
 - https://www.raywenderlich.com/586-swift-algorithm-club-heap-and-priority-queue-data-structure
 
+# Error Handling
+
+- https://developer.apple.com/documentation/xcode/diagnosing_issues_using_crash_reports_and_device_logs/identifying_the_cause_of_common_crashes/addressing_crashes_from_swift_runtime_errors
+- https://www.hackingwithswift.com/articles/218/whats-new-in-swift-5-3
+- https://docs.swift.org/swift-book/LanguageGuide/ErrorHandling.html
+
 # Software Architecture Patterns
 
 ### Protocol oriented programming
