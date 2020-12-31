@@ -54,4 +54,4 @@ class ServicesViewController: UIViewController {
 }
 ```
 
-*[next page: data persistence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataPersistence.md)*
+*[next page: error handling](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/errorHandling.md)*
