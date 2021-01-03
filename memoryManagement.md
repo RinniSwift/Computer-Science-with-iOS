@@ -11,30 +11,27 @@ swift_release() // destruction of `HeapObject`s
 ### ARC
 Automatic Reference Counting helps with storing references into memory and helps with cleaning up when it's not being used.\
 Reference counting only applies on instances of a class.\
-Each time you create a class instance, ARC automatically creates some memory to store the information. but with the deinit() method, ARC will free the memory space of that instance. ARC relates to variables with references of *strong*, *weak*, or *unknowned*\
-**Strong**: all variables are strong by default and can be changed by declaring weak or unknowned\
-**Weak**: [weak references between objects with indipendant lifetime] with the property of weak, it will not increment the reference count. These references are always declared as optionals because the variable can be set to nil. With ARC, it automatically sets the weak reference to nil once the instance is deallocated.\
-**Unknowned**: [unknowned references between objects of the same lifetime] these references similar to weak references but must always hold a value. When the objects will be reached at the same time and dealloced at the same time.
+Each time you create a class instance, ARC automatically creates some memory to store the information. but with the deinit() method, ARC will free the memory space of that instance. ARC relates to variables with references of *strong*, *weak*, or *unknowned*
 
-ARC manages freeing objects only if the reference count of the object becomes 0. 
+> - **Strong**: all variables are strong by default and can be changed by declaring weak or unknowned
+> - **Weak**: [weak references between objects with indipendant lifetime] with the property of weak, it will not increment the reference count. These references are always declared as optionals because the variable can be set to nil. With ARC, it automatically sets the weak reference to nil once the instance is deallocated.
+> - **Unknowned**: [unknowned references between objects of the same lifetime] these references similar to weak references but must always hold a value. When the objects will be reached at the same time and dealloced at the same time.
 
-Reference count only increments when the object is declared as strong or is held strongly by another object. — objects are declared strong by default. To hold onto the object weakly, you can predefine it with the `weak` or `unowned` keyword.
+Reference count only increments when the object is declared as strong or is held strongly by another object. To hold onto the object weakly, you can predefine it with the `weak` or `unowned` keyword.
 
-**Strong referenced objects**
-Increment the reference count by one.
-Expects the value to not be nil at use time.
-
-**Weak referenced objects**
-Does not increment the reference the count by one.
-Is an optional type — the value can become nil at any given moment of the application.
-
-**Unowned referenced objects**
-Does not increment the reference the count by one.
-Is a non optional type — the value expected can not become nil at the on call. — It must have the same lifetime or a longer lifetime.
+> - **Strong referenced objects**\
+> Increment the reference count by one.\
+> Expects the value to not be nil at use time.
+> - **Weak referenced objects**\
+> Does not increment the reference the count by one.\
+> Is an optional type — the value can become nil at any given moment of the application.
+> - **Unowned referenced objects**\
+> Does not increment the reference the count by one.\
+> Is a non optional type — the value expected can not become nil at the on call. — It must have the same lifetime or a longer lifetime.
 
 When a reference objects count becomes 0 at any given moment, it gets dealloced or freed. — You get notified through the deinit() function on the UIViewController. 
 
-When creating an application, you create reference types and value types. Reference types being classes, functions, and closures. value types being constants, variables, enums, and structs. This data gets stored in the heap and the stack. The Heap storing reference types — long lived data and object, and the stack storing value types. 
+When creating an application, you create reference types and value types. Reference types being classes, functions, and closures. value types being constants, variables, enums, and structs. *Read more about reference and value types [here](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/referenceAndValueTypes.md).* This data gets stored in the heap and the stack. The Heap storing reference types — long lived data and object, and the stack storing value types. 
 
 ### **Heaps**
 
@@ -70,19 +67,19 @@ When to use weak or unknowned: define a capture in a closure as unknowned when t
 
 ## Concurrent program issues
 
-### Deadlock
+#### Deadlock
 
 Happens when two threads are waiting for each other to release a shared resource, ending up blocked for infinity.
 
-### Race conditions
+#### Race conditions
 
 Happens when two or more threads access a shared data source and change it's value at the same time.
 
-### Readers writers problem
+#### Readers writers problem
 
-### Thread explosion
+#### Thread explosion
 
-### Priority inversion
+#### Priority inversion
 
 Happens when low priority tasks lock a resource needed by a higher priority task.
 

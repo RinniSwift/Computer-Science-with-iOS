@@ -13,7 +13,7 @@
 - Great for keeping a copy for modifying.
 
 
-## Classes and Structs
+## Classes and Structs Differences
 
 Going to start off by noting that classes are reference types and structs are value types. This means that instances of a class, is pointed to the same point in memory, making all modifications reflects on the object. And each struct creation is unique, making all modifications not shared between instances of the same struct. Beware of unkowingly creating retian cycles. As reference count increases, make sure that holding onto object strongly wouldn't cause an issue.
 
@@ -34,7 +34,7 @@ class User {
 }
 ```
 
-This will not compile since both of the stored properties aren't provided value during initialization.
+:point_up: :warning: This will not compile since both of the stored properties aren't provided value during initialization.
 
 runtime error: `Stored property 'email' without initial value prevents synthesized initializers`
 
@@ -71,9 +71,6 @@ struct Person {
    }
 }
 ```
-
-*[next page: gcd](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)*
-
 
 ## Initializers
 
@@ -152,7 +149,7 @@ struct Human {
 let desHuman = Human(name: "Rinni")    // calls designated init. name = "Rinni"
 let conHuman = Human()             // calls convenience init. name = "not set"
 ```
-Above you can see that we designed the convenience init to call the designated init.\
+Above you can see that we designed the convenience init to call the designated init.
 
 **Initializer Inheritance**\
 how to use initializers with subclasses
