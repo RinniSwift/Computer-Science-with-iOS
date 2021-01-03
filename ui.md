@@ -91,7 +91,7 @@ Why knowing this is important:
 
 ## UITableView vs UICollectionView
 
-The main differences would be how their layout. Tableviews only support vertical scrolling whereas collectionviews support both horizontal scrolling and vertical scrolling in the same collectionView. Tableviews are also easier to setup and simpler as I believe they're collectionviews under the hood with just less customable. Collectionviews are more complex where as you'd use collectionviews if you want to achieve two way scroll within different sections of the collectionview.
+The main differences would be how their layout. Tableviews only support vertical scrolling whereas collectionviews support both horizontal scrolling and vertical scrolling in the same collectionView. Tableviews are also easier to setup and simpler as they are less customizable than collectionviews. Collectionviews are more complex where as you'd use collectionviews if you want to achieve two way scroll within different sections of the collectionview.
 
 **Commonalities**
 - reuseIdentifier (`dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell`)\

@@ -8,6 +8,8 @@ let numArr = [1, 3, 22, 9, 7]
 let nameToScore = ["rin": 9, "sar": 10, "cenz": 9, "ruh": 10, "mike": 7]
 ```
 
+I wrote an article on higher order functions that can be found [here](https://medium.com/@rinradaswift/higher-order-functions-map-filter-and-reduce-b4f4cc0e00bd).
+
 ## Map
 
 Returns the collection containing the results of mapping the input closure over the collection's elements.
@@ -45,6 +47,8 @@ let topPlayersTwo = itemsDict.filter { key, value in
 ## Reduce
 
 Returns a single value that is the result of combining all elements using the input closure.
+
+> *Does not modify the collection - rather returns a new collection.*
 
 There's two parts to this. 
 
