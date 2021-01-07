@@ -96,8 +96,9 @@
 > &nbsp;&nbsp;&nbsp;Checking api availability\
 > &nbsp;&nbsp;&nbsp;Marking func/class as available in specific iOS
 >
-> **[Data handling within apps](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataHandling.md)**\
+> **[Communication Patterns](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/communicationPatterns.md)**\
 > &nbsp;&nbsp;&nbsp;Delegates and protocols\
+> &nbsp;&nbsp;&nbsp;Completion handlers\
 > &nbsp;&nbsp;&nbsp;Singleton\
 > &nbsp;&nbsp;&nbsp;Dependancy injection\
 > &nbsp;&nbsp;&nbsp;Notification center

@@ -59,13 +59,38 @@ class ViewControllerB: UIViewController {
 Whenever *ViewControllerB* is instantiated from *ViewControllerA*, by specifically stating the delegate is of *ViewControllerA*'s, the `viewLoaded` with get called in *ViewControllerA*. Therefore, printing `"delegator view loaded"` in the console
 
 > Note: \
-> Wherever the delegator view controller is going to be presented, the delegate must be declared of which it belongs to. Or else the delegation would not work.
+> Wherever the delegator view controller is going to be presented, the delegate must be declared of which it belongs to. Or else the delegation would not work.\
+> The delegation pattern is used to listen to callbacks.
+
+Downsides of delegates and protocols:
+- The delegation process not setup correctly.
+- Using incorrectly can cause memory issues.
+
+
+## Completion Handlers / Callbacks
+
+Completion handlers are closures. You can use them as functions in input parameters or output parameters.\
+There're two types of closures
+
+- `@escaping` closures - closures that will not outlive the function.
+- `@nonescaping` closures - closures that outlive the function. This can be found a lot when doing async calls. Typically you mark closures with `nonescaping` when the task will take long or will need to jump back and forth from different queues.
+
+Downsides of completion handlers:
+- The possibilitiy of not handling code correctly as the returned closure may not always be on the main thread. - Needs to be aware of executing UI modifications within closures.
+- Closures are reference types so this can cause memory leaks if not handled correctly. - Use weak and unknown when capturing self within the closure.
 
 ## Singleton
 
 > Singletons are objects that should only ever be created once, then shared everywhere they need to be used
+> Global accessibility.
 
-Singletons are a quick and easy way to solve complex problems of sharing resources across  view controllers with few lines of code. It is also used widely across the iOS SDK. Such as: `UIApplication.shared`, `UserDefaults.standard`, `URLSession.shared`.\
+Singletons are a quick and easy way to solve complex problems of sharing resources across view controllers with few lines of code. It is also used widely across the iOS SDK. 
+
+**Apple Frameworks** that use singletons are:
+- `UIAplication.shared`
+- `UserDefaults.standard`
+- `URLSession.shared`
+
 *So, how do they work?* \
 Singletons contian a static variable (global variable) that returns an instance of itself and the initializer is usually `private` to prevent creating new objects. Meaning the singleton will only get instantiated through the static variable.
 
@@ -90,8 +115,6 @@ struct SingletonB {
 }
 ```
 
-Singletons that are *reference types* and *value types* act differently. If you have familiarity with reference types, each instance has a reference to the same object. Therefore each instance accessing the same object's properties. Value types, on the other hand, creates new copies on instantiation. Therefore each object being unique to itself.\
-View controllers can also be singletons.
 
 #### Sample view controller singleton creation 
 ```swift
@@ -169,7 +192,8 @@ In this example, `ViewControllerB` acts as the client and recieves it's dependan
 
 ## Notification Center
 
-> The observing pattern to inform registered observers when a notification comes in, using a central dispatch called Notification Center.
+> The observing pattern to inform registered observers when a notification comes in, using a central dispatch called Notification Center.\
+> Global accessibility -- a 1 to many communication pattern.
 
 The Notification Center API is used to broadcast notifications whenever an action accurs. \
 NotificationCenter uses named notifications to identify what event is either observed or triggered.\
