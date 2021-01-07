@@ -1,6 +1,6 @@
 *[previous page: api availability](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/apiAvailability.md)*
 
-# Passing data between view controllers
+# Communication Patterns
 
 View controllers contain a lot of information. And it would make sense for an app with many view controllers to have the same data. With some data in view controllers being inherited from others. There are multiple ways to do this as below.\
 There are multiple examples to this. Some are - Populating an information page based on what service users select, and - Displaying images on new view controller based on what users searched. Both these examples use some form of code reuse or inheritance. Let's see some ways we can create this using some following choices below.

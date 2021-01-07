@@ -24,4 +24,4 @@ func iOS13Supported() {
 }
 ```
 
-*[next page: data handling within app](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataHandling.md)*
+*[next page: communication patterns](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/communicationPatterns.md)*

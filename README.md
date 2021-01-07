@@ -92,7 +92,7 @@
 > &nbsp;&nbsp;&nbsp;Optional chaining\
 > &nbsp;&nbsp;&nbsp;Nil-coalescing operator
 >
-> **[API Availability](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/apiAvailability.md)**
+> **[API Availability](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/apiAvailability.md)**\
 > &nbsp;&nbsp;&nbsp;Checking api availability\
 > &nbsp;&nbsp;&nbsp;Marking func/class as available in specific iOS
 >

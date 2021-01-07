@@ -1,4 +1,4 @@
-*[previous page: data handling within app](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/dataHandling.md)*
+*[previous page: communication patterns](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/communicationPatterns.md)*
 
 # A collection of Swift used keywords
 
