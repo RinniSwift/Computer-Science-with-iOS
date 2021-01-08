@@ -34,10 +34,13 @@
 > &nbsp;&nbsp;&nbsp;QoS\
 > &nbsp;&nbsp;&nbsp;Priority inversion\
 > &nbsp;&nbsp;&nbsp;Threads\
-> &nbsp;&nbsp;&nbsp;Dispatch work items\
-> &nbsp;&nbsp;&nbsp;Dispatch groups\
-> &nbsp;&nbsp;&nbsp;Semaphores\
-> &nbsp;&nbsp;&nbsp;Combine framework
+> &nbsp;&nbsp;&nbsp;Combine framework\
+> &nbsp;&nbsp;&nbsp;GCD APIs:\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dispatch work items\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dispatch groups\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semaphores\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dispatch Barrier
+
 >
 > **[Pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)**
 >

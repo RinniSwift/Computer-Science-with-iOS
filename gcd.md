@@ -130,217 +130,6 @@ There can be multiple threads in your project, but there’s a limit to when you
 
 Intel Core i7 processor takes advantage of hyper threading. a technology that kicks in when the processor is handling several big jobs at the same time. it lets/tricks each of the processors cores run two threads simultaneously, which means it can do two things at once. 
 
-### DispatchWorkItem
-
-Sometimes we need extra control over the execution. This is where DispatchWorkItems come in handy. You can cancel them.
-
-```swift
-private var pendingWorkItem: DispatchWorkItem?
-let queue = DispatchQueue(label: "serialQueue")
-
-func updateSomething() {
-   pendingWorkItem?.cancel()
-
-   let newWorkItem = DispatchWorkItem { ... }
-   pendingWorkItem = newWorkItem
-
-   queue.async(execute: newWorkItem)
-}
-```
-
-### DispatchGroup
-
-Sometimes we need to execute all heavy tasks before being able to continue. This is where DispatchGroups come in handy. You can call the `wait` or `notify` method to know that all tasks have complete in the group.\
-Dispatch groups are used when you have a load of things you want to do that can happen all at once.
-
-This is how you do a **blocking waiting**
-
-```swift
-let queue = DispatchQueue(label: "serialQueue")
-let group = DispatchGroup()
-
-queue.async(group: group) {
-   sleep(1)
-   print("Task 1 done")
-}
-
-queue.async(group: group) {
-   sleep(2)
-   print("Task 2 done")
-}
-
-group.wait()
-
-print("All tasks done")
-
-// Task 1 done
-// Task 2 done
-// All tasks done
-```
-
-This is how you do a **non blocking waiting**. Notice the balancing of the `enter` and `leave` calls.
-
-```swift
-let queue = DispatchQueue(label: "serialQueue")
-let group = DispatchGroup()
-
-group.enter()
-queue.async {
-   sleep(1)
-   print("Task 1 done")
-   group.leave()
-}
-
-group.enter()
-queue.async {
-   sleep(2)
-   print("Task 2 done")
-   group.leave()
-}
-
-group.notify(queue: queue) {
-    print("All tasks done")
-}
-
-print("Continue execution immediately")
-
-// Continue execution immediately
-// Task 1 done
-// Task 2 done
-// All tasks done
-```
-
-> :bulb: There are cases where you would want to use DispatchGroups even if they were on the main queue. Such as tasks that are handled in the background queue elsewhere, or tasks that take a lot of time. And you wouldn't need to specify the queue. When you call the notify call, you would just specify with the main queue — 
-group.notify(queue: .main) { ... }
->
-> When the line above is run, without any tasks added to the queue, it will still fall through in the notify block when the compiler runs to it.
-
-### DispatchSemaphore
-
-Semaphores acts as the decision maker about what shared resource gets displayed on the thread indicating with the wait() and signal() function. They consist of threads queue and counter value.
-- *Threads Queue*: Used by the semaphore to keep track of what has acces to the shared resource first. This is in FIFO order. (First thread entered will be the first to get access to the shared resource once avaiable)
-- *Counter Value*: used by the semaphore to decide if a thread should get access to the shared resource or not. This value changes when called *signal()* or *wait()* functions.\
-\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call *wait()* before using the shared resource. To ask if the shared resource is available or not. should not be called on the main thread since it will freeze the app.\
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call *signal()* after using the resource. Signaling the semaphore that we are done interacting with it.
-
-**Thread safe**: *Code that can be safely called from multiple threads and not cause any issues.*
-
-- Below Is a sample simulation of 2 people using a Switch--shared resource.
-
-```swift
-let semaphore = DispatchSemaphore(value: 1)
-DispatchQueue.global().async {
-    semaphore.wait()
-    sleep(1) // Person 1 playing with Switch
-    print("Person 1 - done with Switch")
-    semaphore.signal()
-}
-DispatchQueue.global().async {
-    semaphore.wait()
-    print("Person 2 - wait finished")
-    sleep(1) // Person 2 playing with Switch
-    print("Person 2 - done with Switch")
-    semaphore.signal()
-}
-```
-
-*Explanation*: declare the semaphore counter value to 1 indicating that we only want the resource to be accessible by one thread. Then we call the ```wait()``` to make sure we can access the resource and execute the task and don't forget to call the ```signal()``` to signal that we are done using the resource.\
-Semaphores are used when you have a resource that can be accessed by N threads at the same time. They are used mainly for multiple tasks that use the same resource.
-
-More on using semaphores [here](https://github.com/RinniSwift/iOS/blob/master/Concurrency/semaphores.playground/Contents.swift).
-
-Sometimes you want to limit work in progress when you know there are a lot of tasks you want to execute during the same time without trying to thread explode — which is when the pool hits the limit of 65 threads.\
-Below, we are limiting the amount of concurrent tasks it can execute at a time.
-
-```swift
-let concurrentTasks = 3
-
-let queue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
-let semaphore = DispatchSemaphore(value: concurrentTasks)
-
-for _ in 0..<999 {
-   queue.asnyc {
-      // Do some work
-      sema.signal()
-   }
-   sema.wait()
-}
-```
-
-There're also parallel executing for efficient for loop. It must be called on a specific queue not to accidentally block the main one:
-
-```swift
-DispatchQueue.global().async {
-   DispatchQueue.concurrentPerform(iterations: 999) {
-      // Do some work
-   }
-}
-```
-
-### ❗ Can you find the flaw?
-
-```swift
-let queue = DispatchQueue(label: "Concurrent queue", attributes: .concurrent)
-
-for _ in 0..<999 {
-   // 1
-   queue.async {
-      sleep(1000)
-   }
-}
-
-// 2
-DispatchQueue.main.sync {
-   queue.sync {
-      print("Done")
-   }
-}
-```
-
-1. A new thread is being brought up in the pool to service each async operation. The pool hits the limit of 65 threads.
-2. From the main queue, we call a `sync` operation on the same queue. The main thread is blocked because no available threads. At the same time, all the threads in the pool are waiting for the main thread. Since they are both waiting for each other, deadlock occurs.
-
-### DispatchBarrier
-
-> A synchronization point for tasks executing in a concurrent dispatch queue.\
-> Use a barrier to synchronize the execution of one or more tasks in your dispatch queue. When you add a barrier to a concurrent dispatch queue, the queue delays the execution of the barrier block (and any tasks submitted after the barrier) until all previously submitted tasks finish executing. After the previous tasks finish executing, the queue executes the barrier block by itself. Once the barrier block finishes, the queue resumes its normal execution behavior.\
-> [Apple Docs](https://developer.apple.com/documentation/dispatch/dispatch_barrier)
-
-When dealing with code that manipulates a shared resource and is **not** thread safe, there will be issues in concurrent calls that rely on that resource.
-This is where you can flag concurrent queues with `DispatchBarrier`. 
-
-An example to use dispatch barriers is:
-
-```swift
-let queue = DispatchQueue(label: "Concurrent queue", attributes: .concurrent)
-
-var sharedResourceVariable: Int = 1
-
-queue.async(flags: .barrier) { // falgs parameter accepts in `DispatchWorkItemFlags` type.
-   // access the shared resource
-}
-```
-
-Within the async flagged with the dispatch barrier executed completion handler, the queue is retained by the system until the block has run to completion.
-
-> When the barrier block reaches the front of a private concurrent queue, it is not executed immediately. Instead, the queue waits until its currently executing blocks finish executing. At that point, the barrier block executes by itself. Any blocks submitted after the barrier block are not executed until the barrier block completes.\
-> [Apple Docs](https://developer.apple.com/documentation/dispatch/1452797-dispatch_barrier_async)
-
----
-
-> :pushpin: **SUMMARY**: every app has a main thread.
-
-> :question: **Questions**\
-> - How many types of queues are there?\
->       *There are two types. Serial queues and concurrent queues. Serial queues execute tasks after the one before it has completed. Concurrent queues don't wait for one to finish to execute.*
-> - How many queues are pre-created in GCD?\
->       *There are initially 5 queues ready to use, 1 serial queue — main queue, and 4 concurrent queues having different priorities — high, default, low, background.*
-> - Is the main queue a serial or concurrent queue?\
->       *It's a serial queue. This is where all UI related tasks are executed.*
-> - What is a thread explosion, and how can you limit this?\
->       *Thread explosion is when the pool exceeds the limit of 65 threads. This can be handled and limited by using a semaphore by giving the value to the semaphore to limit it down.*
-
 # Combine Framework
 
 Combine is an API for processing values over time. This is used to simplify code with dealing with things like delegates, notifications, timers, completion blocks, and call backs.
@@ -426,5 +215,223 @@ let repoPublisher = publisher.map(\.data).decode(type: Repo.self, decoder: JSOND
 Now within the receiveValue completion, it will be handled on the main queue.
 
 > :bulb: Combine is very useful when wanting to extract out access information in the completion. Which is what we want. To have as little code as possible.
+
+# GCD APIs
+
+- *DispatchWorkItem*
+- *DispatchGroup*
+- *DispatchSemaphore*
+- *DispatchBarrier*
+
+## DispatchWorkItem
+
+Sometimes we need extra control over the execution. This is where DispatchWorkItems come in handy. You can cancel them.
+
+```swift
+private var pendingWorkItem: DispatchWorkItem?
+let queue = DispatchQueue(label: "serialQueue")
+
+func updateSomething() {
+   pendingWorkItem?.cancel()
+
+   let newWorkItem = DispatchWorkItem { ... }
+   pendingWorkItem = newWorkItem
+
+   queue.async(execute: newWorkItem)
+}
+```
+
+## DispatchGroup
+
+Sometimes we need to execute all heavy tasks before being able to continue. This is where DispatchGroups come in handy. You can call the `wait` or `notify` method to know that all tasks have complete in the group.\
+Dispatch groups are used when you have a load of things you want to do that can happen all at once.
+
+This is how you do a **blocking waiting**
+
+```swift
+let queue = DispatchQueue(label: "serialQueue")
+let group = DispatchGroup()
+
+queue.async(group: group) {
+   sleep(1)
+   print("Task 1 done")
+}
+
+queue.async(group: group) {
+   sleep(2)
+   print("Task 2 done")
+}
+
+group.wait()
+
+print("All tasks done")
+
+// Task 1 done
+// Task 2 done
+// All tasks done
+```
+
+This is how you do a **non blocking waiting**. Notice the balancing of the `enter` and `leave` calls.
+
+```swift
+let queue = DispatchQueue(label: "serialQueue")
+let group = DispatchGroup()
+
+group.enter()
+queue.async {
+   sleep(1)
+   print("Task 1 done")
+   group.leave()
+}
+
+group.enter()
+queue.async {
+   sleep(2)
+   print("Task 2 done")
+   group.leave()
+}
+
+group.notify(queue: queue) {
+    print("All tasks done")
+}
+
+print("Continue execution immediately")
+
+// Continue execution immediately
+// Task 1 done
+// Task 2 done
+// All tasks done
+```
+
+> :bulb: There are cases where you would want to use DispatchGroups even if they were on the main queue. Such as tasks that are handled in the background queue elsewhere, or tasks that take a lot of time. And you wouldn't need to specify the queue. When you call the notify call, you would just specify with the main queue — 
+group.notify(queue: .main) { ... }
+>
+> When the line above is run, without any tasks added to the queue, it will still fall through in the notify block when the compiler runs to it.
+
+## DispatchSemaphore
+
+Semaphores acts as the decision maker about what shared resource gets displayed on the thread indicating with the wait() and signal() function. They consist of threads queue and counter value.
+- *Threads Queue*: Used by the semaphore to keep track of what has acces to the shared resource first. This is in FIFO order. (First thread entered will be the first to get access to the shared resource once avaiable)
+- *Counter Value*: used by the semaphore to decide if a thread should get access to the shared resource or not. This value changes when called *signal()* or *wait()* functions.\
+\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call *wait()* before using the shared resource. To ask if the shared resource is available or not. should not be called on the main thread since it will freeze the app.\
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Call *signal()* after using the resource. Signaling the semaphore that we are done interacting with it.
+
+**Thread safe**: *Code that can be safely called from multiple threads and not cause any issues.*
+
+- Below Is a sample simulation of 2 people using a Switch--shared resource.
+
+```swift
+let semaphore = DispatchSemaphore(value: 1)
+DispatchQueue.global().async {
+    semaphore.wait()
+    sleep(1) // Person 1 playing with Switch
+    print("Person 1 - done with Switch")
+    semaphore.signal()
+}
+DispatchQueue.global().async {
+    semaphore.wait()
+    print("Person 2 - wait finished")
+    sleep(1) // Person 2 playing with Switch
+    print("Person 2 - done with Switch")
+    semaphore.signal()
+}
+```
+
+*Explanation*: declare the semaphore counter value to 1 indicating that we only want the resource to be accessible by one thread. Then we call the ```wait()``` to make sure we can access the resource and execute the task and don't forget to call the ```signal()``` to signal that we are done using the resource.\
+Semaphores are used when you have a resource that can be accessed by N threads at the same time. They are used mainly for multiple tasks that use the same resource.
+
+More on using semaphores [here](https://github.com/RinniSwift/iOS/blob/master/Concurrency/semaphores.playground/Contents.swift).
+
+Sometimes you want to limit work in progress when you know there are a lot of tasks you want to execute during the same time without trying to thread explode — which is when the pool hits the limit of 65 threads.\
+Below, we are limiting the amount of concurrent tasks it can execute at a time.
+
+```swift
+let concurrentTasks = 3
+
+let queue = DispatchQueue(label: "concurrentQueue", attributes: .concurrent)
+let semaphore = DispatchSemaphore(value: concurrentTasks)
+
+for _ in 0..<999 {
+   queue.asnyc {
+      // Do some work
+      sema.signal()
+   }
+   sema.wait()
+}
+```
+
+There're also parallel executing for efficient for loop. It must be called on a specific queue not to accidentally block the main one:
+
+```swift
+DispatchQueue.global().async {
+   DispatchQueue.concurrentPerform(iterations: 999) {
+      // Do some work
+   }
+}
+```
+
+### ❗ Can you find the flaw?
+
+```swift
+let queue = DispatchQueue(label: "Concurrent queue", attributes: .concurrent)
+
+for _ in 0..<999 {
+   // 1
+   queue.async {
+      sleep(1000)
+   }
+}
+
+// 2
+DispatchQueue.main.sync {
+   queue.sync {
+      print("Done")
+   }
+}
+```
+
+1. A new thread is being brought up in the pool to service each async operation. The pool hits the limit of 65 threads.
+2. From the main queue, we call a `sync` operation on the same queue. The main thread is blocked because no available threads. At the same time, all the threads in the pool are waiting for the main thread. Since they are both waiting for each other, deadlock occurs.
+
+## DispatchBarrier
+
+> A synchronization point for tasks executing in a concurrent dispatch queue.\
+> Use a barrier to synchronize the execution of one or more tasks in your dispatch queue. When you add a barrier to a concurrent dispatch queue, the queue delays the execution of the barrier block (and any tasks submitted after the barrier) until all previously submitted tasks finish executing. After the previous tasks finish executing, the queue executes the barrier block by itself. Once the barrier block finishes, the queue resumes its normal execution behavior.\
+> [Apple Docs](https://developer.apple.com/documentation/dispatch/dispatch_barrier)
+
+When dealing with code that manipulates a shared resource and is **not** thread safe, there will be issues in concurrent calls that rely on that resource.
+This is where you can flag concurrent queues with `DispatchBarrier`. 
+
+An example to use dispatch barriers is:
+
+```swift
+let queue = DispatchQueue(label: "Concurrent queue", attributes: .concurrent)
+
+var sharedResourceVariable: Int = 1
+
+queue.async(flags: .barrier) { // falgs parameter accepts in `DispatchWorkItemFlags` type.
+   // access the shared resource
+}
+```
+
+Within the async flagged with the dispatch barrier executed completion handler, the queue is retained by the system until the block has run to completion.
+
+> When the barrier block reaches the front of a private concurrent queue, it is not executed immediately. Instead, the queue waits until its currently executing blocks finish executing. At that point, the barrier block executes by itself. Any blocks submitted after the barrier block are not executed until the barrier block completes.\
+> [Apple Docs](https://developer.apple.com/documentation/dispatch/1452797-dispatch_barrier_async)
+
+---
+
+> :pushpin: **SUMMARY**: every app has a main thread.
+
+> :question: **Questions**
+> - How many types of queues are there?\
+>       *There are two types. Serial queues and concurrent queues. Serial queues execute tasks after the one before it has completed. Concurrent queues don't wait for one to finish to execute.*
+> - How many queues are pre-created in GCD?\
+>       *There are initially 5 queues ready to use, 1 serial queue — main queue, and 4 concurrent queues having different priorities — high, default, low, background.*
+> - Is the main queue a serial or concurrent queue?\
+>       *It's a serial queue. This is where all UI related tasks are executed.*
+> - What is a thread explosion, and how can you limit this?\
+>       *Thread explosion is when the pool exceeds the limit of 65 threads. This can be handled and limited by using a semaphore by giving the value to the semaphore to limit it down.*
 
 *[next page: pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)*
