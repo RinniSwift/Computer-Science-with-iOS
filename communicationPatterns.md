@@ -203,7 +203,7 @@ Downsides of Notification Center:
 - NotificationCenter is an obective-C API which makes the code fragile because of not being able to use generics to retain type safety.
 - Does not supporty seperation of concerns. Notifications are broadcasted app-wide. This is really convenient but makes relationships between objects loose.
 
-
+:warning: NotificationCenter observers are automatically unregistered on dealloc in iOS 9 and above!
 
 ## KVO
 ## Instantiation / prepareForSegue / unwindSegue
