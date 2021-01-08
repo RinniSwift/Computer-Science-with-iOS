@@ -44,6 +44,8 @@
 - https://medium.com/@roykronenfeld/semaphores-in-swift-e296ea80f860
 - https://github.com/RinniSwift/iOS/blob/master/Concurrency/semaphores.playground/Contents.swift
 - https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1
+- https://medium.com/swift-india/parallel-programming-with-swift-part-2-4-46a3c6262359
+- https://developer.apple.com/documentation/dispatch
 
 # Reference and Value Types
 
