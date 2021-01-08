@@ -301,6 +301,34 @@ DispatchQueue.main.sync {
 1. A new thread is being brought up in the pool to service each async operation. The pool hits the limit of 65 threads.
 2. From the main queue, we call a `sync` operation on the same queue. The main thread is blocked because no available threads. At the same time, all the threads in the pool are waiting for the main thread. Since they are both waiting for each other, deadlock occurs.
 
+### DispatchBarrier
+
+> A synchronization point for tasks executing in a concurrent dispatch queue.\
+> Use a barrier to synchronize the execution of one or more tasks in your dispatch queue. When you add a barrier to a concurrent dispatch queue, the queue delays the execution of the barrier block (and any tasks submitted after the barrier) until all previously submitted tasks finish executing. After the previous tasks finish executing, the queue executes the barrier block by itself. Once the barrier block finishes, the queue resumes its normal execution behavior.\
+> [Apple Docs](https://developer.apple.com/documentation/dispatch/dispatch_barrier)
+
+When dealing with code that manipulates a shared resource and is **not** thread safe, there will be issues in concurrent calls that rely on that resource.
+This is where you can flag concurrent queues with `DispatchBarrier`. 
+
+An example to use dispatch barriers is:
+
+```swift
+let queue = DispatchQueue(label: "Concurrent queue", attributes: .concurrent)
+
+var sharedResourceVariable: Int = 1
+
+queue.async(flags: .barrier) { // falgs parameter accepts in `DispatchWorkItemFlags` type.
+   // access the shared resource
+}
+```
+
+Within the async flagged with the dispatch barrier executed completion handler, the queue is retained by the system until the block has run to completion.
+
+> When the barrier block reaches the front of a private concurrent queue, it is not executed immediately. Instead, the queue waits until its currently executing blocks finish executing. At that point, the barrier block executes by itself. Any blocks submitted after the barrier block are not executed until the barrier block completes.\
+> [Apple Docs](https://developer.apple.com/documentation/dispatch/1452797-dispatch_barrier_async)
+
+---
+
 > :pushpin: **SUMMARY**: every app has a main thread.
 
 > :question: **Questions**\

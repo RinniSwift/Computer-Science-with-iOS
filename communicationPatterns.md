@@ -135,6 +135,7 @@ While it's easy to create and use singletons as a shared resource, it's global a
 - Misuse of singletons. Without internal implementation of the singleton, developers can mistake this with assuming that instantiating it creates an isolated object.
 - Singletons carry state for the entirety of the application.
 - Hard to create tests for. Each sequence of method called on the singleton leads to the same internal state.
+- Often not thread safe. 
 
 
 ## Dependancy Injection
