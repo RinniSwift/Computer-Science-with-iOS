@@ -40,7 +40,6 @@
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dispatch groups\
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Semaphores\
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Dispatch Barrier
-
 >
 > **[Pagination](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/pagination.md)**
 >
