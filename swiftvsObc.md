@@ -1,3 +1,4 @@
+*[previous page: foundation](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/foundation.md)*
 
 # Swift VS. Objective-C
 
@@ -45,3 +46,5 @@ Switch statements also fallthrough to the next case. So must keep in mind of `br
 Swift supports switch statments on almost anything, String, Int.\
 Switch statements are not `fallthrough`. So keep in mind of `fallthrough` keyword to customize it there.\
 With Swift containing a string raw representable, it can come in handy when decoing JSON values! You can decode the enum into a `String` type and continue on to initialize the enum with it's string type, by falling back to a default enum case that's appropriate.
+
+*[back to menu](https://github.com/RinniSwift/Computer-Science-with-iOS#computer-science-with-ios)*
