@@ -107,3 +107,13 @@
 - https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-declaration
 - https://docs.swift.org/swift-book/LanguageGuide/Properties.html#ID264
 - https://www.objc.io/books/advanced-swift/
+
+# Swift vs. Objective-C
+
+- https://docs.swift.org/swift-book/LanguageGuide/Generics.html
+- https://docs.swift.org/swift-book/LanguageGuide/Enumerations.html
+- https://objective-c.programmingpedia.net/en/tutorial/1461/enums
+- https://developer.apple.com/documentation/swift/result
+- https://www.hackingwithswift.com/articles/161/how-to-use-result-in-swift
+- https://azamsharp.medium.com/understanding-result-type-in-swift-5-387d5ef9f45e
+- https://www.tutorialspoint.com/objective_c/switch_statement_in_objective_c.htm
