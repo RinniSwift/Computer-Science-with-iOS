@@ -91,7 +91,6 @@ So let's start by creating a `IteratorProtocol` type.
 ```swift
 struct StackIterator<T>: IteratorProtocol {
 
-    typealias Element = T
     private var stack: Stack<T>
     private var count: Int
 
