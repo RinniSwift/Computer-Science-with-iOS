@@ -113,7 +113,11 @@
 > &nbsp;&nbsp;&nbsp;[NSKeyedArchiver and NSKeyedUnarchiver](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/archiver.md)\
 > &nbsp;&nbsp;&nbsp;[URL Components](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlComponents.md)\
 > &nbsp;&nbsp;&nbsp;[URL Session](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/urlSession.md)\
-> &nbsp;&nbsp;&nbsp;[Integer](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/integer.md)
+> &nbsp;&nbsp;&nbsp;[Integer](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/integer.md)\
+> &nbsp;&nbsp;&nbsp;[Sequence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/sequence.md)\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sequence\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IteratorProtocol\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stack as an iterator\
 > 
 > **[Swift VS. ObjC](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftvsObc.md)**\
 > &nbsp;&nbsp;&nbsp;Enums\

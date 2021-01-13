@@ -102,6 +102,13 @@
 - https://useyourloaf.com/blog/urlsession-waiting-for-connectivity
 - https://docs.swift.org/swift-book/LanguageGuide/TheBasics.html#:~:text=Integers%20are%20either%20signed%20(positive,integer%20is%20of%20type%20Int32%20.
 
+### Sequence
+- https://developer.apple.com/documentation/swift/sequence
+- https://developer.apple.com/documentation/swift/iteratorprotocol
+- https://agostini.tech/2018/06/10/design-patterns-in-swift-iterator-pattern
+- https://theswiftdev.com/iterator-design-pattern-in-swift/
+- https://developer.apple.com/documentation/swift/collection
+
 # Swift keywords
 
 - https://docs.swift.org/swift-book/ReferenceManual/Declarations.html#grammar_import-declaration

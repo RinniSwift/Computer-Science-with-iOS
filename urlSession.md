@@ -33,3 +33,4 @@ And control the timeout interval with the `timeoutIntervalForResource` property 
 Introduced in iOS 11. This is settable Bool value that when set to true, the URLSession waits until there's a network connectivity that's available before trying the connection.\
 This is used pair with the `URLSessionTaskDelegate` where it contains `urlSession(_:taskIsWaitingForConnectivity:)` for some action.
 
+*[next page: integer](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/integer.md)*
