@@ -42,6 +42,8 @@ Stacks are LIFO(Last In First Out) order.
 
     This is a container which is stack based for hierarchical content.
 
-### Implementation
+### [Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/Stack.playground/Contents.swift)
 
-[Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/Stack.playground/Contents.swift)
+---
+
+> :bulb: See how to implement a Stack as a iterative sequence [here](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/sequence.md#create-one-yourself).

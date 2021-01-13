@@ -91,6 +91,4 @@ When removing the highest priority element, it leaves back two heaps!  — visua
 
 ## Where is it used?
 
-### Implementation
-
-[Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/Heap.playground/Contents.swift)
+### [Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/Heap.playground/Contents.swift)

@@ -63,6 +63,4 @@ An example of this would be `remove()` function, in singly linked lists, it woul
 - Fast indexing time as arrays conform to RandomAccessCollection protocol — performant random access index traversal.
 - Performant lookup time since indexes are continuous.
 
-### Implementation
-
-[Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/LinkedList.playground/Contents.swift)
+### [Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/LinkedList.playground/Contents.swift)
