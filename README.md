@@ -51,7 +51,8 @@
 > &nbsp;&nbsp;&nbsp;View hierarchy\
 > &nbsp;&nbsp;&nbsp;View lifecycles\
 > &nbsp;&nbsp;&nbsp;Frame vs. bounds\
-> &nbsp;&nbsp;&nbsp;UITableView vs. UICollectionView
+> &nbsp;&nbsp;&nbsp;UITableView vs. UICollectionView\
+> &nbsp;&nbsp;&nbsp;UITableView
 >
 > **[Enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)**
 >

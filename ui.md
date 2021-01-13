@@ -97,4 +97,35 @@ The main differences would be how their layout. Tableviews only support vertical
 - reuseIdentifier (`dequeueReusableCell(withIdentifier identifier: String, for indexPath: IndexPath) -> UITableViewCell`)\
 Limits allocating new views for each row. As cells scroll off the view, they get enqueued onto an internal queue and from this function, we dequeue from that queue if there contains one. If not, it returns a newly allocated view.
 
+## UITableView
+
+*A view that presents data using rows arranged in a single column.*\
+*[Apple Docs](https://developer.apple.com/documentation/uikit/uitableview)*
+
+Tableviews display a single row of content which can be divided into seperate sections to make navigating easier. You can also provide header or footer views to provide additional information.
+
+Tableviews are data driven and in order to maintain the up to date data, it's done through a data source object, `UITableViewDataSource`.
+
+Which contains these **required** functions:
+- `func tableView(UITableView, numberOfRowsInSection: Int) -> Int`
+- `func tableView(UITableView, cellForRowAt: IndexPath) -> UITableViewCell`
+
+and some additional APIs that allow functionality of:
+
+- The number of sections and rows in the table
+- The titles for section header and footers
+- Responding to the user's updates that require changed to the underlying data
+
+`cellForRowAt:` is where you'd usually configure the appropriate typed cell along with it's content. In here, use `dequeueReusableCell(withIdentifier:for:)` method to retrieve a cell object.\
+When using custom tableviewcells, you would want to use either or of the following:
+
+- `register(_:forCellReuseIdentifier:)`
+- `func register(UINib?, forCellReuseIdentifier: String)`
+
+When cells scroll of the screen, it calls the `prepareForResuse()` method.
+
+Cell-reuse is a concept that is applied so a table view can reuse cells that it has already created. This minimizes the amount of view allocations needed. It would consume a lot of memory and be bad UX for having to wait for all the views to load in memory before.
+
+A UITableViewCell object is only created when `dequeueReusableCell(withIdentifier:for:)` doesn't retrieve anything back -- there're no available reusable cells.
+
 *[next page: enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)*
