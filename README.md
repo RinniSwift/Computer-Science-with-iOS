@@ -117,7 +117,7 @@
 > &nbsp;&nbsp;&nbsp;[Sequence](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/sequence.md)\
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Sequence\
 > &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;IteratorProtocol\
-> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stack as an iterator\
+> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Stack as an iterator
 > 
 > **[Swift VS. ObjC](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftvsObc.md)**\
 > &nbsp;&nbsp;&nbsp;Enums\
