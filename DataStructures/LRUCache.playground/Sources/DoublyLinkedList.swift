@@ -1,8 +1,15 @@
 import Foundation
 import XCTest
 
+public protocol Payload {
+    associatedtype Value
+
+    var key: String { get set }
+    var value: Value { get set }
+}
+
 /// A Node class to represent data objects in the LinkedList class
-public class Node<T> {
+public class Node<T: Payload> {
     public var value: T
     var previous: Node<T>?
     var next: Node<T>?
@@ -13,7 +20,7 @@ public class Node<T> {
 }
 
 /// An implementation of a generic doubly linkedList.
-public class DoublyLinkedList<T> {
+public class DoublyLinkedList<T: Payload> {
     public var head: Node<T>?
     public var tail: Node<T>?
     var isEmpty: Bool {
@@ -26,6 +33,7 @@ public class DoublyLinkedList<T> {
 
     /// print the values of each node in order in the LinkedList
     public func prettyPrint() {
+        // TODO: update pretty print for updated Payload type.
         var nodes = [T]()
         var currNode = head
         while currNode != nil {
@@ -196,12 +204,23 @@ public class DoublyLinkedList<T> {
 }
 
 
+public struct CachePayload<T>: Payload {
+    public var key: String
+    public var value: T
+
+    public init(key: String, value: Value) {
+        self.key = key
+        self.value = value
+    }
+}
+
 public class TestDoublyLinkedList: XCTestCase {
 
-    var linkedList = DoublyLinkedList<Int>()
+    var linkedList = DoublyLinkedList<CachePayload<Int>>()
 
     func testFirstCase() {
-        let node = Node(value: 5)
+        let rinni = CachePayload(key: "Rinni", value: 21)
+        let node = Node(value: rinni)
 
         linkedList.moveToHead(node: node)
 
@@ -209,53 +228,64 @@ public class TestDoublyLinkedList: XCTestCase {
     }
 
     func testSecondCase() {
+        let rinni = CachePayload(key: "Rinni", value: 21)
+        let sarin = CachePayload(key: "Sarin", value: 21)
 
-        linkedList.add(value: 5)
-        linkedList.add(value: 4)
+        linkedList.add(value: rinni)
+        linkedList.add(value: sarin)
         linkedList.moveToHead(node: linkedList.tail!)
 
         XCTAssert(linkedList.isEmpty == false)
-        XCTAssert(linkedList.head?.value == 4)
-        XCTAssert(linkedList.tail?.value == 5)
+        XCTAssert(linkedList.head?.value.key == "Sarin")
+        XCTAssert(linkedList.tail?.value.key == "Rinni")
     }
 
     func testThirdCase() {
-        linkedList.add(value: 5)
-        linkedList.add(value: 4)
-        linkedList.add(value: 3)
+        let rinni = CachePayload(key: "Rinni", value: 21)
+        let sarin = CachePayload(key: "Sarin", value: 21)
+        let cenz = CachePayload(key: "Cenz", value: 23)
+
+        linkedList.add(value: rinni)
+        linkedList.add(value: sarin)
+        linkedList.add(value: cenz)
         linkedList.moveToHead(node: linkedList.tail!)
 
         XCTAssert(linkedList.isEmpty == false)
-        XCTAssert(linkedList.head?.value == 3)
-        XCTAssert(linkedList.head?.next?.value == 5)
-        XCTAssert(linkedList.tail?.value == 4)
+        XCTAssert(linkedList.head?.value.key == "Cenz")
+        XCTAssert(linkedList.head?.next?.value.key == "Rinni")
+        XCTAssert(linkedList.tail?.value.key == "Sarin")
     }
 
     func testFourthCase() {
-        linkedList.add(value: 5)
+        let rinni = CachePayload(key: "Rinni", value: 21)
+        linkedList.add(value: rinni)
         linkedList.moveToHead(node: linkedList.tail!)
 
         XCTAssert(linkedList.isEmpty == false)
-        XCTAssert(linkedList.head?.value == 5)
-        XCTAssert(linkedList.tail?.value == 5)
+        XCTAssert(linkedList.head?.value.key == "Rinni")
+        XCTAssert(linkedList.tail?.value.key == "Rinni")
     }
 
     func testFifthCase() {
-        linkedList.add(value: 5)
-        linkedList.add(value: 4)
-        linkedList.add(value: 3)
-        linkedList.add(value: 2)
-        linkedList.add(value: 1)
+        let rinni = CachePayload(key: "Rinni", value: 21)
+        let sarin = CachePayload(key: "Sarin", value: 21)
+        let cenz = CachePayload(key: "Cenz", value: 23)
+        let ruh = CachePayload(key: "Ruhsane", value: 21)
+        let nick = CachePayload(key: "Nick", value: 23)
+
+        linkedList.add(value: rinni)
+        linkedList.add(value: sarin)
+        linkedList.add(value: cenz)
+        linkedList.add(value: ruh)
+        linkedList.add(value: nick)
 
         if let nodey = linkedList.node(at: 2) {
             linkedList.moveToHead(node: nodey)
         }
 
-        XCTAssert(linkedList.head?.value == 3)
-        XCTAssert(linkedList.node(at: 1)?.value == 5)
-        XCTAssert(linkedList.node(at: 2)?.value == 4)
-        XCTAssert(linkedList.node(at: 3)?.value == 2)
-
-        linkedList.prettyPrint()
+        XCTAssert(linkedList.head?.value.key == "Cenz")
+        XCTAssert(linkedList.node(at: 1)?.value.key == "Rinni")
+        XCTAssert(linkedList.node(at: 2)?.value.key == "Sarin")
+        XCTAssert(linkedList.node(at: 3)?.value.key == "Ruhsane")
     }
 }
