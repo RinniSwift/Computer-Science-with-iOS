@@ -77,6 +77,13 @@
 - https://developer.apple.com/documentation/swiftui/viewbuilder
 - https://docs.swift.org/swift-book/LanguageGuide/OpaqueTypes.html
 - https://developer.apple.com/documentation/swift/mirror
+- https://subscription.packtpub.com/book/application_development/9781789133202/1/ch01lvl1sec12/under-the-hood-performance-of-uitableview
+- https://developer.apple.com/documentation/uikit/uitableview
+- https://developer.apple.com/documentation/uikit/views_and_controls/table_views/filling_a_table_with_data
+- https://developer.apple.com/documentation/uikit/uitableviewdatasource
+- https://developer.apple.com/documentation/uikit/uitableviewcell
+- https://developer.apple.com/documentation/uikit/uitableviewcell/1623276-init
+- https://developer.apple.com/documentation/uikit/uitableviewdelegate
 
 ### Frame vs Bounds
 

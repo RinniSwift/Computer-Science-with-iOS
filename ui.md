@@ -128,4 +128,34 @@ Cell-reuse is a concept that is applied so a table view can reuse cells that it 
 
 A UITableViewCell object is only created when `dequeueReusableCell(withIdentifier:for:)` doesn't retrieve anything back -- there're no available reusable cells.
 
+To customize your tableview, use the delegate object, `UITableViewDelegate`.
+
+It doesn't have any required functions and contains APIs that allow functionality for:
+
+- Creating and managing custom headers and footers
+- Specifying custom heights for rows, headers, and footers
+- Responding to row selections
+- Respond to swipes and other actions in table rows
+- Support editing the table's content
+
+Some common methods to use in UITableViewDelegate are:
+
+- `func tableView(UITableView, didSelectRowAt: IndexPath)`
+- `func tableView(UITableView, didDeselectRowAt: IndexPath)`
+- `func tableView(UITableView, viewForHeaderInSection: Int) -> UIView?`
+- `func tableView(UITableView, viewForFooterInSection: Int) -> UIView?`
+- `func tableView(UITableView, heightForRowAt: IndexPath) -> CGFloat`
+- `func tableView(UITableView, shouldHighlightRowAt: IndexPath) -> Bool`
+
+You don't need to always use delegate methods to specify certain features of a tableview, you can call it on the propreties directly on the instantiated object for customization. Here's an example:
+
+```swift
+let tableView = UITableView(frame: .zero, style: .grouped)
+
+tableview.separatorStyle = .none
+tableview.showsVerticalScrollIndicator = false
+tableview.backgroundView = someView()
+tableview.rowHeight = // some CGFloat 
+```
+
 *[next page: enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)*
