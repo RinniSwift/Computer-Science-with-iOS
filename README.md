@@ -62,6 +62,11 @@
 > &nbsp;&nbsp;&nbsp;Reduce
 >
 > **[Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)**
+> &nbsp;&nbsp;&nbsp;Escaping closures\
+> &nbsp;&nbsp;&nbsp;Capturing\
+> &nbsp;&nbsp;&nbsp;Capture lists\
+> &nbsp;&nbsp;&nbsp;Memory issues with closures\
+> &nbsp;&nbsp;&nbsp;Scope
 >
 > **[Error Handling](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/errorHandling.md)**
 >
@@ -81,7 +86,7 @@
 >
 > **[Testing](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/testing.md)**
 > 
-> **[Swift UI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)**\
+> **[SwiftUI](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftUI.md)**\
 > &nbsp;&nbsp;&nbsp;View Construction\
 > &nbsp;&nbsp;&nbsp;Compared to UIKit\
 > &nbsp;&nbsp;&nbsp;View Layout

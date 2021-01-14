@@ -66,6 +66,11 @@
 - https://docs.swift.org/swift-book/LanguageGuide/Functions.html
 - https://medium.com/@rinradaswift/higher-order-functions-map-filter-and-reduce-b4f4cc0e00bd
 
+# Closures
+
+- https://docs.swift.org/swift-book/LanguageGuide/Closures.html
+- https://www.swiftbysundell.com/articles/swifts-closure-capturing-mechanics/
+- https://docs.swift.org/swift-book/LanguageGuide/AutomaticReferenceCounting.html#ID56
 # UI
 
 - https://developer.apple.com/documentation/uikit/uiview/1622469-hittest

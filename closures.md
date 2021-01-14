@@ -54,4 +54,38 @@ class ServicesViewController: UIViewController {
 }
 ```
 
+Whenever defining an *escaping closure*, it'll implicitly capture any objects, values, functions that are referenced within it's scope. And since escaping closures not always return right away, memory issues can arise.
+
+let's say within our view controller we have an asynchronous network call which passes back a value and that takes roughly 5 seconds, depending on your connectivity and we want to change properties of the view controller based on the returned value. We're not gauranteed that the the outer scope of the closure -- the object that holds the closure --, -- the view controller -- still exists in memory. i.e. It got dealloced.
+
+```swift
+// within some view controller scope
+func getServices() {
+    // calling a class func on `ServiceLayer` object.
+    ServiceLayer.request(router: Router.getServiceInfo) { (result: Result<[Service], Error>) in
+        switch result {
+        case let .success(services):
+            self.services = services
+        case .failure:
+            // do something with failure case
+        }
+    }
+}
+```
+
+Since the closure is capturing self strongly, given that the view controller can be dealloced, this can cause a [retain cycle](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/memoryManagement.md#retain-cycles), preventing both objects from ever getting deallocated (since they can’t reach a reference count of zero).
+
+Here's when we can introduce **capture lists** to break the strong reference cycles like below:
+
+```swift
+ServiceLayer.request(router: Router.getServiceInfo) { [weak self] result in // not explicitly stating the result type like I did above.
+    switch result {
+    case let .success(services):
+        self?.services = services // weak sets the object to be optional. i.e. must be unwrapped to call it's the property.
+    case .failure:
+        // do something with failure case
+    }
+}
+```
+
 *[next page: error handling](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/errorHandling.md)*
