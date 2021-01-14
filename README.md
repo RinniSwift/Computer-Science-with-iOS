@@ -9,6 +9,8 @@
 > :couple: [Queue](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/queue.md)
 >
 > :signal_strength: [Heap](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/heap.md)
+>
+> :file_folder: [LRU Cache](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/lruCache.md)
 
 
 # :iphone: iOS Knowledge
