@@ -14,7 +14,7 @@ public class Node<T: Payload> {
     var previous: Node<T>?
     var next: Node<T>?
 
-    init(value: T) {
+    public init(value: T) {
         self.value = value
     }
 }
@@ -215,6 +215,7 @@ public struct CachePayload<T>: Payload {
 }
 
 public class TestDoublyLinkedList: XCTestCase {
+    // TODO: rename tests to be explanitory.
 
     var linkedList = DoublyLinkedList<CachePayload<Int>>()
 
