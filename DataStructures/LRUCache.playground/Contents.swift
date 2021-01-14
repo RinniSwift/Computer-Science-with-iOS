@@ -94,3 +94,6 @@ class TestLRUCache: XCTestCase {
 }
 
 TestLRUCache.defaultTestSuite.run()
+
+
+TestDoublyLinkedList.defaultTestSuite.run()

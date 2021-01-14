@@ -160,4 +160,102 @@ public class DoublyLinkedList<T> {
         count -= 1
         return true
     }
+
+    public func moveToHead(node: Node<T>) {
+        guard !isEmpty else {
+            return
+        }
+
+        if head === node && tail === node {
+            // do nothing
+        } else if head === node {
+            // do nothing
+        } else if tail === node {
+            tail?.previous?.next = nil
+            tail = tail?.previous
+
+            let prevHead = head
+            head?.next?.previous = node
+            head = node
+            head?.next = prevHead
+        } else {
+            var currNode = head
+            while currNode?.next !== node && currNode !== tail {
+                currNode = currNode?.next
+            }
+
+            currNode?.next = node.next
+            node.next?.previous = currNode
+
+            let prevHead = head
+            head = node
+            head?.next = prevHead
+            prevHead?.previous = head
+        }
+    }
+}
+
+
+public class TestDoublyLinkedList: XCTestCase {
+
+    var linkedList = DoublyLinkedList<Int>()
+
+    func testFirstCase() {
+        let node = Node(value: 5)
+
+        linkedList.moveToHead(node: node)
+
+        XCTAssert(linkedList.isEmpty ==  true)
+    }
+
+    func testSecondCase() {
+
+        linkedList.add(value: 5)
+        linkedList.add(value: 4)
+        linkedList.moveToHead(node: linkedList.tail!)
+
+        XCTAssert(linkedList.isEmpty == false)
+        XCTAssert(linkedList.head?.value == 4)
+        XCTAssert(linkedList.tail?.value == 5)
+    }
+
+    func testThirdCase() {
+        linkedList.add(value: 5)
+        linkedList.add(value: 4)
+        linkedList.add(value: 3)
+        linkedList.moveToHead(node: linkedList.tail!)
+
+        XCTAssert(linkedList.isEmpty == false)
+        XCTAssert(linkedList.head?.value == 3)
+        XCTAssert(linkedList.head?.next?.value == 5)
+        XCTAssert(linkedList.tail?.value == 4)
+    }
+
+    func testFourthCase() {
+        linkedList.add(value: 5)
+        linkedList.moveToHead(node: linkedList.tail!)
+
+        XCTAssert(linkedList.isEmpty == false)
+        XCTAssert(linkedList.head?.value == 5)
+        XCTAssert(linkedList.tail?.value == 5)
+    }
+
+    func testFifthCase() {
+        linkedList.add(value: 5)
+        linkedList.add(value: 4)
+        linkedList.add(value: 3)
+        linkedList.add(value: 2)
+        linkedList.add(value: 1)
+
+        if let nodey = linkedList.node(at: 2) {
+            linkedList.moveToHead(node: nodey)
+        }
+
+        XCTAssert(linkedList.head?.value == 3)
+        XCTAssert(linkedList.node(at: 1)?.value == 5)
+        XCTAssert(linkedList.node(at: 2)?.value == 4)
+        XCTAssert(linkedList.node(at: 3)?.value == 2)
+
+        linkedList.prettyPrint()
+    }
 }
