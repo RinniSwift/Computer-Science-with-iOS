@@ -30,5 +30,5 @@ Now these will be the two high level functions, or at least what would be access
 
 2. Using a priority queue and dictionary
 
-### [Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/LRUCache.playground/Contents.swift)
-
+### [LRU Cache Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/LRUCache.playground/Contents.swift)
+### [Doubly Linked List Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/LRUCache.playground/Sources/DoublyLinkedList.swift)
