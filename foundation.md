@@ -1,4 +1,4 @@
-*[previous page: collection protocols](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/collectionProtocols.md)*
+*[previous page: collection types](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/collections.md)*
 
 # Foundation
 The framework
