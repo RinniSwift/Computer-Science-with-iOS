@@ -29,7 +29,7 @@ class LRUCache<T> {
             dictionary[key] = value
         } else {
             if linkedList.count == capacity {
-                if let leastAccessedKey = linkedList.tail?.value.key {
+                if let leastAccessedKey = linkedList.tail?.payload.key {
                     dictionary[leastAccessedKey] = nil
                 }
                 linkedList.remove()
@@ -57,64 +57,134 @@ class TestLRUCache: XCTestCase {
         XCTAssert(cache.linkedList.count == 0)
     }
 
-    func testFirstCase() {
+    func testAddingOneObject() {
         cache.setObject(for: "Rinni", value: 21)
 
-        XCTAssert(cache.linkedList.head?.value.key == "Rinni")
-        XCTAssert(cache.linkedList.tail?.value.key == "Rinni")
-        XCTAssert(cache.linkedList.head?.value.value == 21)
-        XCTAssert(cache.linkedList.tail?.value.value == 21)
+        XCTAssert(cache.linkedList.head?.payload.key == "Rinni")
+        XCTAssert(cache.linkedList.tail?.payload.key == "Rinni")
+        XCTAssert(cache.linkedList.head?.payload.value == 21)
+        XCTAssert(cache.linkedList.tail?.payload.value == 21)
         XCTAssert(cache.linkedList.count == 1)
 
         XCTAssert(cache.dictionary["Rinni"] == 21)
     }
 
-    func testSecondCase() {
+    func testAddingTwoObjects() {
         cache.setObject(for: "Rinni", value: 21)
         cache.setObject(for: "Sarin", value: 21)
 
-        XCTAssert(cache.linkedList.head?.value.key == "Sarin")
-        XCTAssert(cache.linkedList.tail?.value.key == "Rinni")
-        XCTAssert(cache.linkedList.head?.value.value == 21)
-        XCTAssert(cache.linkedList.tail?.value.value == 21)
+        XCTAssert(cache.linkedList.head?.payload.key == "Sarin")
+        XCTAssert(cache.linkedList.tail?.payload.key == "Rinni")
+        XCTAssert(cache.linkedList.head?.payload.value == 21)
+        XCTAssert(cache.linkedList.tail?.payload.value == 21)
         XCTAssert(cache.linkedList.count == 2)
 
         XCTAssert(cache.dictionary["Rinni"] == 21)
         XCTAssert(cache.dictionary["Sarin"] == 21)
     }
 
-    func testThirdCase() {
+    func testAddingDuplicateObject() {
         cache.setObject(for: "Rinni", value: 21)
         cache.setObject(for: "Sarin", value: 21)
         cache.setObject(for: "Sarin", value: 20)
 
-        XCTAssert(cache.linkedList.head?.value.key == "Sarin")
-        XCTAssert(cache.linkedList.tail?.value.key == "Rinni")
-        XCTAssert(cache.linkedList.head?.value.value == 20)
-        XCTAssert(cache.linkedList.tail?.value.value == 21)
+        XCTAssert(cache.linkedList.head?.payload.key == "Sarin")
+        XCTAssert(cache.linkedList.tail?.payload.key == "Rinni")
+        XCTAssert(cache.linkedList.head?.payload.value == 20)
+        XCTAssert(cache.linkedList.tail?.payload.value == 21)
         XCTAssert(cache.linkedList.count == 2)
 
+        XCTAssert(cache.dictionary.count == 2)
         XCTAssert(cache.dictionary["Rinni"] == 21)
         XCTAssert(cache.dictionary["Sarin"] == 20)
     }
 
-    func testFourthCase() {
+    func testAddingDuplicateObjectToAlmostFullCache() {
         cache.setObject(for: "Rinni", value: 21)
         cache.setObject(for: "Sarin", value: 21)
         cache.setObject(for: "Cenz", value: 23)
         cache.setObject(for: "Ruhsane", value: 22)
         cache.setObject(for: "Sarin", value: 2)
 
-        XCTAssert(cache.linkedList.head?.value.key == "Sarin")
-        XCTAssert(cache.linkedList.tail?.value.key == "Rinni")
-        XCTAssert(cache.linkedList.head?.value.value == 2)
-        XCTAssert(cache.linkedList.tail?.value.value == 21)
+        XCTAssert(cache.linkedList.head?.payload.key == "Sarin")
+        XCTAssert(cache.linkedList.tail?.payload.key == "Rinni")
+        XCTAssert(cache.linkedList.head?.payload.value == 2)
+        XCTAssert(cache.linkedList.tail?.payload.value == 21)
         XCTAssert(cache.linkedList.count == 4)
 
         XCTAssert(cache.dictionary["Rinni"] == 21)
         XCTAssert(cache.dictionary["Sarin"] == 2)
         XCTAssert(cache.dictionary["Cenz"] == 23)
         XCTAssert(cache.dictionary["Ruhsane"] == 22)
+    }
+
+    func testAddingDuplicateObjectToFullCache() {
+        cache.setObject(for: "Rinni", value: 21)
+        cache.setObject(for: "Sarin", value: 21)
+        cache.setObject(for: "Cenz", value: 23)
+        cache.setObject(for: "Ruhsane", value: 22)
+        cache.setObject(for: "Nick", value: 23)
+        cache.setObject(for: "Sarin", value: 2)
+
+        XCTAssert(cache.linkedList.head?.payload.key == "Sarin")
+        XCTAssert(cache.linkedList.tail?.payload.key == "Rinni")
+        XCTAssert(cache.linkedList.head?.payload.value == 2)
+        XCTAssert(cache.linkedList.tail?.payload.value == 21)
+        XCTAssert(cache.linkedList.count == 5)
+
+        XCTAssert(cache.dictionary.count == 5)
+        XCTAssert(cache.dictionary["Rinni"] == 21)
+        XCTAssert(cache.dictionary["Sarin"] == 2)
+        XCTAssert(cache.dictionary["Cenz"] == 23)
+        XCTAssert(cache.dictionary["Ruhsane"] == 22)
+        XCTAssert(cache.dictionary["Nick"] == 23)
+    }
+
+    func testAddingObjectToFullCache() {
+        cache.setObject(for: "Rinni", value: 21)
+        cache.setObject(for: "Sarin", value: 21)
+        cache.setObject(for: "Cenz", value: 23)
+        cache.setObject(for: "Ruhsane", value: 22)
+        cache.setObject(for: "Nick", value: 23)
+        cache.setObject(for: "Brian", value: 222)
+
+        XCTAssert(cache.linkedList.head?.payload.key == "Brian")
+        XCTAssert(cache.linkedList.tail?.payload.key == "Sarin")
+        XCTAssert(cache.linkedList.head?.payload.value == 222)
+        XCTAssert(cache.linkedList.tail?.payload.value == 21)
+        XCTAssert(cache.linkedList.count == 5)
+
+        XCTAssert(cache.dictionary.count == 5)
+        XCTAssert(cache.dictionary["Rinni"] == nil)
+        XCTAssert(cache.dictionary["Sarin"] == 21)
+        XCTAssert(cache.dictionary["Cenz"] == 23)
+        XCTAssert(cache.dictionary["Ruhsane"] == 22)
+        XCTAssert(cache.dictionary["Nick"] == 23)
+        XCTAssert(cache.dictionary["Brian"] == 222)
+    }
+
+    func testAddingDuplicateObjectToFullerCache() {
+        cache.setObject(for: "Rinni", value: 21)
+        cache.setObject(for: "Sarin", value: 21)
+        cache.setObject(for: "Cenz", value: 23)
+        cache.setObject(for: "Ruhsane", value: 22)
+        cache.setObject(for: "Nick", value: 23)
+        cache.setObject(for: "Brian", value: 222)
+        cache.setObject(for: "Nick", value: 2)
+
+        XCTAssert(cache.linkedList.head?.payload.key == "Nick")
+        XCTAssert(cache.linkedList.tail?.payload.key == "Sarin")
+        XCTAssert(cache.linkedList.head?.payload.value == 2)
+        XCTAssert(cache.linkedList.tail?.payload.value == 21)
+        XCTAssert(cache.linkedList.count == 5)
+
+        XCTAssert(cache.dictionary.count == 5)
+        XCTAssert(cache.dictionary["Rinni"] == nil)
+        XCTAssert(cache.dictionary["Sarin"] == 21)
+        XCTAssert(cache.dictionary["Cenz"] == 23)
+        XCTAssert(cache.dictionary["Ruhsane"] == 22)
+        XCTAssert(cache.dictionary["Nick"] == 2)
+        XCTAssert(cache.dictionary["Brian"] == 222)
     }
 }
 
