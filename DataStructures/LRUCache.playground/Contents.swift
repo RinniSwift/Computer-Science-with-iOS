@@ -2,10 +2,6 @@ import UIKit
 import XCTest
 
 class LRUCache<T> {
-//    struct Element {
-//        var key: String
-//        var value: T
-//    }
 
     /// Total capacity of the LRU cache.
     private(set) var capacity: UInt
