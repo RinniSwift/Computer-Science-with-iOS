@@ -30,5 +30,59 @@ Now these will be the two high level functions, or at least what would be access
 
 2. Using a priority queue and dictionary
 
+3. Using a heap and dictionary
+
 ### [LRU Cache Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/LRUCache.playground/Contents.swift)
 ### [Doubly Linked List Implementation in Swift](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/DataStructures/LRUCache.playground/Sources/DoublyLinkedList.swift)
+
+---
+
+`NSCache`
+
+Caching in iOS can be done through [NSCache](https://developer.apple.com/documentation/foundation/nscache): a class that behaves simlar to a mutable dictionary with an addition functionality of evicting items when resources are low. 
+
+Here's how to create one
+
+```swift
+class Cache: NSCache<NSURL, UIImage> {
+
+    init(limit: Int = 200) {
+        super.init()
+        countLimit = limit
+    }
+
+    func image(for url: URL, completion: @escaping ((UIImage?) -> Void)) {
+        if let image = object(forKey: url as NSURL) {
+            completion(image)
+        } else {
+            URLSession.shared.dataTask(with: url) { [weak self] data, _, _ in
+                DispatchQueue.main.async {
+                    guard let data = data,
+                        let image = UIImage(data: data) else {
+                        completion(nil)
+                        return
+                    }
+                    self?.setObject(image, forKey: url as NSURL)
+                    completion(UIImage(data: data))
+                }
+            }.resume()
+        }
+    }
+}
+```
+
+and in usage:
+
+```swift
+if let url = service.url {
+
+    if let image = imageCache.object(forKey: url as NSURL) {
+            cell.imageView.image = image
+    } else {
+            imageCache.image(for: url) { [weak cell] image in
+                    cell.imageView.image = image
+                    // Do any ui animations
+            }
+    }
+}
+```
