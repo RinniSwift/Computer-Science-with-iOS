@@ -2,19 +2,20 @@ import Foundation
 import XCTest
 
 public protocol Payload {
+    associatedtype Key
     associatedtype Value
 
-    var key: String { get set }
+    var key: Key { get set }
     var value: Value { get set }
 }
 
 
-public struct CachePayload<T>: Payload {
+public struct CachePayload<T: Hashable, U>: Payload {
 
-    public var key: String
-    public var value: T
+    public var key: T
+    public var value: U
 
-    public init(key: String, value: Value) {
+    public init(key: Key, value: Value) {
         self.key = key
         self.value = value
     }
@@ -267,7 +268,7 @@ public class DoublyLinkedList<T: Payload> {
 
 public class TestDoublyLinkedList: XCTestCase {
 
-    var linkedList = DoublyLinkedList<CachePayload<Int>>()
+    var linkedList = DoublyLinkedList<CachePayload<String, Int>>()
 
     func testMoveToHeadOnEmptyLinkedList() {
         let rinni = CachePayload(key: "Rinni", value: 21)

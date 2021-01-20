@@ -1,14 +1,14 @@
 import UIKit
 import XCTest
 
-class LRUCache<T> {
+class LRUCache<T: Hashable, U> {
 
     /// Total capacity of the LRU cache.
     private(set) var capacity: UInt
     /// LinkedList will store elements that are most accessed at the head and least accessed at the tail.
-    private(set) var linkedList = DoublyLinkedList<CachePayload<T>>()
+    private(set) var linkedList = DoublyLinkedList<CachePayload<T, U>>()
     /// Dictionary that will store the element, T, at the specified key.
-    private(set) var dictionary = [String: Node<CachePayload<T>>]()
+    private(set) var dictionary = [T: Node<CachePayload<T, U>>]()
 
     /// LRUCache requires a capacity which must be greater than 0
     required init(capacity: UInt) {
@@ -16,7 +16,7 @@ class LRUCache<T> {
     }
 
     /// Sets the specified value at the specified key in the cache.
-    func setObject(for key: String, value: T) {
+    func setObject(for key: T, value: U) {
         let element = CachePayload(key: key, value: value)
         let node = Node(value: element)
 
@@ -39,8 +39,13 @@ class LRUCache<T> {
     }
 
     /// Returns the element at the specified key. Nil if it doesn't exist.
-    func retrieveObject(at key: String) -> T? {
-        return dictionary[key]?.payload.value
+    func retrieveObject(at key: T) -> U? {
+        guard let existingNode = dictionary[key] else {
+            return nil
+        }
+
+        linkedList.moveToHead(node: existingNode)
+        return existingNode.payload.value
     }
 }
 
@@ -48,7 +53,7 @@ class LRUCache<T> {
 
 class TestLRUCache: XCTestCase {
 
-    let cache = LRUCache<Int>(capacity: 5)
+    let cache = LRUCache<String, Int>(capacity: 5)
 
     func testEmptyCache() {
         XCTAssert(cache.linkedList.head == nil)
@@ -188,8 +193,8 @@ class TestLRUCache: XCTestCase {
         cache.setObject(for: "Nick", value: 2)
 
         // (Nick: 2) -> (Brian: 222) -> (Ruhsane: 22) -> (Cenz: 23) -> (Sarin: 21)
-        cache.linkedList.prettyPrint()
-        print("\n")
+//        cache.linkedList.prettyPrint()
+//        print("\n")
 
         XCTAssert(cache.linkedList.head?.payload.key == "Nick")
         XCTAssert(cache.linkedList.tail?.payload.key == "Sarin")
@@ -205,7 +210,21 @@ class TestLRUCache: XCTestCase {
         XCTAssert(cache.dictionary["Nick"]?.payload.value == 2)
         XCTAssert(cache.dictionary["Brian"]?.payload.value == 222)
     }
+
+    func testAccessingAnElement() {
+        cache.setObject(for: "Rinni", value: 21)
+        cache.setObject(for: "Sarin", value: 21)
+        cache.setObject(for: "Cenz", value: 23)
+        cache.setObject(for: "Ruhsane", value: 22)
+
+        XCTAssert(cache.retrieveObject(at: "Cenz") == 23)
+
+
+        // (Sarin: 2) -> (Ruhsane: 22) -> (Cenz: 23) -> (Rinni: 21)
+        cache.linkedList.prettyPrint()
+        print("\n")
+    }
 }
 
-TestLRUCache.defaultTestSuite.run()
-//TestDoublyLinkedList.defaultTestSuite.run()
+//TestLRUCache.defaultTestSuite.run()
+TestDoublyLinkedList.defaultTestSuite.run()
