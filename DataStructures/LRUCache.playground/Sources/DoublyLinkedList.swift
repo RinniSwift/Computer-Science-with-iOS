@@ -137,6 +137,48 @@ public class DoublyLinkedList<T: Payload> {
         return true
     }
 
+    /// The head starting at index 0
+    /// returns bool indicating wether or not the insert was successful.
+    public func insert(node: Node<T>, at index: Int) -> Bool {
+        guard !isEmpty else {
+            head = node
+            tail = node
+            count += 1
+            return true
+        }
+
+        guard case 0..<count = index else {
+            return false
+        }
+
+        var currNode = head
+        for _ in stride(from: 0, to: index - 1, by: 1) {
+            currNode = currNode?.next
+        }
+
+        if currNode === head {
+            if head === tail {
+                node.next = head
+                head?.previous = node
+                head = node
+            } else {
+                node.next = head
+                head = node
+            }
+
+            count += 1
+            return true
+        }
+
+        node.previous = currNode
+        node.next = currNode?.next
+        currNode?.next?.previous = node
+        currNode?.next = node
+
+        count += 1
+        return true
+    }
+
     /// The head of the LinkedList starting at index 0
     /// Returns bool indicating wether or not the remove was successful
     func remove(at index: Int) -> Bool {
