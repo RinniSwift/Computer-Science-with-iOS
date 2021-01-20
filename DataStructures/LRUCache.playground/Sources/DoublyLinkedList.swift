@@ -25,8 +25,8 @@ public struct CachePayload<T>: Payload {
 public class Node<T: Payload> {
 
     public var payload: T
-    var previous: Node<T>?
-    var next: Node<T>?
+    public var previous: Node<T>?
+    public var next: Node<T>?
 
     public init(value: T) {
         self.payload = value
@@ -46,6 +46,21 @@ public class DoublyLinkedList<T: Payload> {
     public var count: Int = 0
 
     public init() {}
+
+    public func prettyPrint() {
+        var nodesPayload = [T]()
+        var currNode = head
+        while currNode != nil {
+            if let payload = currNode?.payload {
+                nodesPayload.append(payload)
+            }
+            currNode = currNode?.next
+        }
+
+        for payload in nodesPayload {
+            print("(\(payload.key): \(payload.value))", terminator: " -> ")
+        }
+    }
 
     /// traverses the nodes and returns the node at the given index and nil if no nodes are found in the LinkedList.
     /// The head starting at index 0.
