@@ -79,4 +79,30 @@ enum Filter: CaseIterable {
 
 Because enums can't know the value of the associated type, it can't infer the all cases. You must define it yourself.
 
+### Decoding enums
+*From JSON responses*
+
+When decoding JSON responses, you have to keep in mind that decoding can fail, or even crash the app if not handled well. Some of this comes from change in JSON formatting, or modified values in parameters. I ran into this recently where we created decoded a field in the JSON response into an enum but weren't aware of future additions to the enum made from server. So the decoding would fail and crash the app. Since we were decoding the value at the field directly into an enum, there lies the problem if there were to be additions.
+
+A way to handle this is to modify the enum into a `String` type, and then initialize the enum from the raw representable string. This is assuming that the enum conforms to `String` type. Like below:
+
+```swift
+enum SomeRating: String {
+    case high
+    case medium
+    case low
+    case unknown
+}
+```
+
+```swift
+// ...
+
+init(from decoder: Decoder) throws {
+    let container = try decoder.container(keyedBy: CodingKeys.self)
+    let someRatingStr = try container.decode(String.self, forKey: .someRating)
+    let someRating = SomeRating(rawValue: someRatingStr) ?? .unknown
+}
+```
+
 *[next page: higher order functions](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/higherOrderFunctions.md)*
