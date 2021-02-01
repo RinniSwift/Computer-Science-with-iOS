@@ -128,7 +128,7 @@ Cell-reuse is a concept that is applied so a table view can reuse cells that it 
 
 A UITableViewCell object is only created when `dequeueReusableCell(withIdentifier:for:)` doesn't retrieve anything back -- there're no available reusable cells.
 
-To customize your tableview, use the delegate object, `UITableViewDelegate`.
+To manage the layout and data manipulation, use the delegate object, `UITableViewDelegate`.
 
 It doesn't have any required functions and contains APIs that allow functionality for:
 
@@ -157,5 +157,33 @@ tableview.showsVerticalScrollIndicator = false
 tableview.backgroundView = someView()
 tableview.rowHeight = // some CGFloat 
 ```
+
+> `UITableView.Style` is an enum case that determines the tableview style.
+>  
+> - `plain`: the default style of a table view. Section headers and footers are displayed as inline separators and float when the table view is scrolled.
+> - `grouped`: this makes section headers not clip to the top as you scroll, or as Apple docs calls "float" -- Section headers and footers do not float when the table view scrolls. 
+> - `insetGrouped`: introduced in iOS 13 and above. The grouped sections have rounded corners.
+
+#### Issues found in table view implementations
+
+-  `viewForFooterInSection` and `viewForHeaderInSection` should also use the tableview's recycable method: `dequeueReusableHeaderFooterView`.
+- Understanding threads and how you're updating UI. Make sure you run UI related code on the main queue.
+- Checking if you can limit the call for `reloadData()` and call `reloadRows(at:with:)` or other methods that reload only a specific amount of cells.
+
+#### Why you would want to use a tableview
+
+- Table views keep the memory footprint low. Views added to the tableview stay in memory until the cell is scrolled off the screen.
+- Can quickly reload, insert, reorder cells.
+
+## UIScrollView
+
+e.g. Photos or Maps
+
+#### Why you would want to use a UIScrollView
+
+- To display content with a vast area that you can zoom or scroll in any direction.
+
+
+## UIVisualEffectView
 
 *[next page: enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)*
