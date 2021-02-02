@@ -19,7 +19,10 @@ func hitTest(_ point: CGPoint,
             with event: UIEvent?) -> UIView?
 ```
 
-Hit-testing is UIKit's touch handling subsystem which is an algorithm that traverses the view hierarchy and finds/returns the deep most view that contains within the touch point and nil if it was completely outside the recievers view hierarchy.
+Hit-testing is UIKit's touch handling subsystem which is an algorithm that traverses the view hierarchy and finds/returns the deep most view that contains within the touch point and nil if it was completely outside the recievers view hierarchy.\
+The deep most view in the view hierarchy will equate to the front most view on the user's screen.
+
+This method traverses the view hierarchy by calling the `point(inside:with:)`, *a UIView instance method which returns bool determining wether the view contains within the specified point with the touch event*, method of each subview to determine which subview should receive a touch event.
 
 **properties on the view that will be ignored in hit-testing**\
 `isHidden` property is true\
@@ -29,6 +32,28 @@ Hit-testing is UIKit's touch handling subsystem which is an algorithm that trave
 > `userInteractionEnabled = false` on a view cascades down it's subviews.
 > All subviews will have *userInteractionEnabled* equal to false as well.
 
+How hit testing might look under the hood:
+
+```swift
+override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+    guard self.point(inside: point, with: event) else {
+        return nil
+    }
+
+    guard alpha >= 0.01, isUserInteractionEnabled, !isHidden else {
+        return nil
+    }
+
+    for subview in subviews.reversed() {
+        if let hitView = subview.hitTest(point, with: event) {
+            return hitView
+        }
+    }
+    return nil
+}
+```
+
+When you're dealing with complex views that you might want to handle more of the user interaction. you can override `hitTest:withEvent` or `pointInside:withEvent:` to achieve more custom user interactions. One thing that may come of help here is when you set a views `isUserInteractionEnabled = false`, this makes all of it's subviews to be disregarded.
 
 
 ## View Lifecycles
