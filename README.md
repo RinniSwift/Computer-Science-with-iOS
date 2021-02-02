@@ -64,7 +64,7 @@
 > &nbsp;&nbsp;&nbsp;Filter\
 > &nbsp;&nbsp;&nbsp;Reduce
 >
-> **[Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)**
+> **[Closures](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/closures.md)**\
 > &nbsp;&nbsp;&nbsp;Escaping closures\
 > &nbsp;&nbsp;&nbsp;Capturing\
 > &nbsp;&nbsp;&nbsp;Capture lists\

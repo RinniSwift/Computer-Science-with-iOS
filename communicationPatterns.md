@@ -72,8 +72,8 @@ Downsides of delegates and protocols:
 Completion handlers are closures. You can use them as functions in input parameters or output parameters.\
 There're two types of closures
 
-- `@escaping` closures - closures that will not outlive the function.
-- `@nonescaping` closures - closures that outlive the function. This can be found a lot when doing async calls. Typically you mark closures with `nonescaping` when the task will take long or will need to jump back and forth from different queues.
+- `@escaping` closures - closures that outlive the function. This can be found a lot when doing async calls. Typically you mark closures with `@escaping` when the task will take long or will need to jump back and forth from different queues.
+- `@nonescaping` closures - closures that will not outlive the function. 
 
 Downsides of completion handlers:
 - The possibilitiy of not handling code correctly as the returned closure may not always be on the main thread. - Needs to be aware of executing UI modifications within closures.
