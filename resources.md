@@ -136,3 +136,10 @@
 - https://www.hackingwithswift.com/articles/161/how-to-use-result-in-swift
 - https://azamsharp.medium.com/understanding-result-type-in-swift-5-387d5ef9f45e
 - https://www.tutorialspoint.com/objective_c/switch_statement_in_objective_c.htm
+
+# Statements
+
+- https://www.avanderlee.com/swift/unknown-default-enums-in-swift/
+- https://docs.swift.org/swift-book/ReferenceManual/Attributes.html#ID620
+- https://docs.swift.org/swift-book/ReferenceManual/Statements.html
+- https://github.com/apple/swift-evolution/blob/master/proposals/0192-non-exhaustive-enums.md

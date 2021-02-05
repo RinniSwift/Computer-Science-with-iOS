@@ -35,4 +35,4 @@ A module is a single unit of code distribution — a framework or applicatio
 >
 > [Access Control](https://www.bobthedeveloper.io/blog/the-complete-understanding-of-access-control-in-swift)
 
-*[next page: types](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/types.md)*
+*[next page: statements](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/statements.md)*

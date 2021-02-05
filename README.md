@@ -48,6 +48,16 @@
 >
 > **[Access Control](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/accessControl.md)**
 >
+> **[Statements](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/statements.md)**\
+> &nbsp;&nbsp;&nbsp;Loop statements\
+> &nbsp;&nbsp;&nbsp;Branch statements\
+> &nbsp;&nbsp;&nbsp;Labeled statements\
+> &nbsp;&nbsp;&nbsp;Control transfer statements\
+> &nbsp;&nbsp;&nbsp;Defer statements\
+> &nbsp;&nbsp;&nbsp;Do statements\
+> &nbsp;&nbsp;&nbsp;Compiler control statements\
+> &nbsp;&nbsp;&nbsp;Availability Condition
+>
 > **[Types](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/types.md)**
 >
 > **[UIKit](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/ui.md)**\
@@ -102,10 +112,6 @@
 > &nbsp;&nbsp;&nbsp;Doubly nested optionals\
 > &nbsp;&nbsp;&nbsp;Optional chaining\
 > &nbsp;&nbsp;&nbsp;Nil-coalescing operator
->
-> **[API Availability](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/apiAvailability.md)**\
-> &nbsp;&nbsp;&nbsp;Checking api availability\
-> &nbsp;&nbsp;&nbsp;Marking func/class as available in specific iOS
 >
 > **[Communication Patterns](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/communicationPatterns.md)**\
 > &nbsp;&nbsp;&nbsp;Delegates and protocols\

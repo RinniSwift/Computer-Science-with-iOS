@@ -1,4 +1,4 @@
-*[previous page: api availability](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/apiAvailability.md)*
+*[previous page: optionals](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/optionals.md)*
 
 # Communication Patterns
 
