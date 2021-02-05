@@ -145,6 +145,15 @@
 > &nbsp;&nbsp;&nbsp;Generics\
 > &nbsp;&nbsp;&nbsp;Switch statements
 
+---
+
+> **Blogs that I find super useful**
+> - https://developer.apple.com/documentation/swift
+> - https://www.swiftbysundell.com
+> - https://www.avanderlee.com
+> - https://github.com/apple/swift-evolution/tree/master/proposals
+> - https://medium.com/pragmatic-programmers/directory-of-pragmatic-programmer-books-on-medium-6a5cbadbd4b4
+> - https://www.geeksforgeeks.org
 
 # :paperclip: Resources
 
