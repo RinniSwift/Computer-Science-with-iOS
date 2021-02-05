@@ -154,10 +154,8 @@
 > - https://github.com/apple/swift-evolution/tree/master/proposals
 > - https://medium.com/pragmatic-programmers/directory-of-pragmatic-programmer-books-on-medium-6a5cbadbd4b4
 > - https://www.geeksforgeeks.org
-
-# :paperclip: Resources
-
-> **[Resource List](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/resources.md)**
+> 
+> :paperclip: a more extensive [Resource List](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/resources.md)
 
 ## Contact
 
