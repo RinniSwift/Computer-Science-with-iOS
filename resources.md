@@ -46,6 +46,9 @@
 - https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091-CH1-SW1
 - https://medium.com/swift-india/parallel-programming-with-swift-part-2-4-46a3c6262359
 - https://developer.apple.com/documentation/dispatch
+- https://www.freecodecamp.org/news/ios-concurrency/
+- https://www.avanderlee.com/swift/operations/
+- https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in-swift
 
 # Reference and Value Types
 

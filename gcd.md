@@ -20,15 +20,15 @@ With dispatch queues, you can execute your code synchronously or asynchronously.
 > On every dispatch queue, tasks will be executed in the same order as you add them to the queue (FIFO) the first task in the line will be executed first but 
 > the task completion is not guaranteed. task completion is up to the code complexity. not order.
 
-#### How to tell that a function is synchronous vs. asynchronous.
+#### How to tell wether a task is synchronous vs. asynchronous.
 
 There are a couple of key components for each. Keep in mind that these are the common cases - there are outliers.
 
 **Key components for a synchronous call/function:**
-- You can store the value of the call/function as a value -- there's a return type.
+- You can store the value of the call/function as a value -- there's a return type -- the function directly returns its value.
 - There usually are no completion handlers.
 
-**Key components for an asynchronous call/function:**
+**Key components for an asynchronous call/closure/complettion handler:**
 - The function does not contain a return type but rather a completion block.
 - When calling the function, you usually don't store it in a variable, but you get it's result from a completion block.
 
@@ -215,6 +215,31 @@ let repoPublisher = publisher.map(\.data).decode(type: Repo.self, decoder: JSOND
 Now within the receiveValue completion, it will be handled on the main queue.
 
 > :bulb: Combine is very useful when wanting to extract out access information in the completion. Which is what we want. To have as little code as possible.
+
+---
+
+# Operation vs. GCD
+
+### Operation
+
+`Operation` works with `OperationQueue`. Both are built on top of *GCD*.
+
+An `Operation` is an abstract class. You'd use `BlockOperation` or create you own subclass of `Operation`. You can start the operation by manually adding it to the operation queue or calling start on it.
+
+Creating a subclass would require overriding the `main()` method by adding in logic to perform work. Also make sure to add in checks for it's state.
+
+Operation
+> - Pros:\
+> Can add/remove dependencies to an operation to start executing once all other operations have completed and remove once you don't need to depend on other operations to start.
+> - Cons:\
+> Can re-use, cancel, or suspend tasks.\
+> Can become hard for others to maintain the code.\
+> Adds a little extra overhead compared to GCD.\
+> Test extensively to make sure that the introduction of threads is actually an improvement. Testing can be done through Xcode instruments in the debugger menu. Also keep in mind of slow/fast network, slow/fast devices, and devices with a different number of cores.
+
+### GCD
+
+GCD is a lightweight way to represent units of work that are going to executed concurrently. You don't need to schedule the tasks, but rather let the system handle it for you. You can provide QoS to each task to expedite some proceses.
 
 # GCD APIs
 
