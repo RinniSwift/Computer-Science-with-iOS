@@ -237,6 +237,34 @@ Operation
 > Adds a little extra overhead compared to GCD.\
 > Test extensively to make sure that the introduction of threads is actually an improvement. Testing can be done through Xcode instruments in the debugger menu. Also keep in mind of slow/fast network, slow/fast devices, and devices with a different number of cores.
 
+```swift
+let operationOne = BlockOperation {
+    for ind in 1...9 {
+        print("\(ind): ❤️")
+    }
+}
+
+let operationTwo = BlockOperation {
+    for ind in 1...9 {
+        print("\(ind): ⭐️")
+    }
+}
+
+let operationQueue = OperationQueue()
+operationQueue.addOperation(operationOne)
+operationQueue.addOperation(operationTwo)
+```
+
+> Paste this in a playground and see what will happen here.
+
+What if we added this line in as a property of `operationQueue`:
+
+```swift
+operationQueue.maxConcurrentOperationCount = 1
+```
+
+> Observe the changes in your playground!
+
 ### GCD
 
 GCD is a lightweight way to represent units of work that are going to executed concurrently. You don't need to schedule the tasks, but rather let the system handle it for you. You can provide QoS to each task to expedite some proceses.
