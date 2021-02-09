@@ -224,7 +224,7 @@ Now within the receiveValue completion, it will be handled on the main queue.
 
 `Operation` works with `OperationQueue`. Both are built on top of *GCD*.
 
-An `Operation` is an abstract class. You'd use `BlockOperation` or create you own subclass of `Operation`. You can start the operation by manually adding it to the operation queue or calling start on it.
+An `Operation` is an abstract class. You'd use `BlockOperation` or create you own subclass of `Operation`. You can start the operation by manually adding it to the operation queue or calling `start` on it. -- but doing this doesn't guarantee that the operation runs concurrently with the rest of your code because this depends on what thread `start` was called on. You can use the `isConcurrent` property to check wether it will run synchronously or asynchronously.
 
 Creating a subclass would require overriding the `main()` method by adding in logic to perform work. Also make sure to add in checks for it's state.
 
@@ -255,7 +255,7 @@ operationQueue.addOperation(operationOne)
 operationQueue.addOperation(operationTwo)
 ```
 
-> Paste this in a playground and see what will happen here.
+*Paste this in a playground and see what will happen here.*
 
 What if we added this line in as a property of `operationQueue`:
 
@@ -263,7 +263,15 @@ What if we added this line in as a property of `operationQueue`:
 operationQueue.maxConcurrentOperationCount = 1
 ```
 
-> Observe the changes in your playground!
+*Observe the changes in your playground!*
+
+What if we added this:
+
+```swift
+operationTwo.addDependency(operationOne)
+```
+
+*Observe the changes in your playground!*
 
 ### GCD
 

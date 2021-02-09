@@ -49,6 +49,8 @@
 - https://www.freecodecamp.org/news/ios-concurrency/
 - https://www.avanderlee.com/swift/operations/
 - https://www.raywenderlich.com/5293-operation-and-operationqueue-tutorial-in-swift
+- https://developer.apple.com/documentation/foundation/operationqueue
+- https://developer.apple.com/library/archive/documentation/General/Conceptual/ConcurrencyProgrammingGuide/Introduction/Introduction.html#//apple_ref/doc/uid/TP40008091
 
 # Reference and Value Types
 
