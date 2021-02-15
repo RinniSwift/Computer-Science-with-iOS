@@ -87,9 +87,10 @@ Downsides of completion handlers:
 Singletons are a quick and easy way to solve complex problems of sharing resources across view controllers with few lines of code. It is also used widely across the iOS SDK. 
 
 **Apple Frameworks** that use singletons are:
-- `UIAplication.shared`
+- `UIApplication.shared`
 - `UserDefaults.standard`
 - `URLSession.shared`
+- `FileManager.default`
 
 *So, how do they work?* \
 Singletons contian a static variable (global variable) that returns an instance of itself and the initializer is usually `private` to prevent creating new objects. Meaning the singleton will only get instantiated through the static variable.
