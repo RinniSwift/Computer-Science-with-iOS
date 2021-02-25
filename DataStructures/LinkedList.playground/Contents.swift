@@ -48,7 +48,7 @@ class LinkedList<T: Comparable> {
         }
 
         if index == 0 {
-            append(data)
+            prepend(data)
             return true
         }
 
