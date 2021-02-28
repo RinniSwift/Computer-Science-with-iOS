@@ -45,7 +45,7 @@ override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     }
 
     for subview in subviews.reversed() {
-        let subviewPoint = subview.convert(point, to: self)
+        let subviewPoint = convert(point, to: subview)
         if let hitView = subview.hitTest(subviewPoint, with: event) {
             return hitView
         }
