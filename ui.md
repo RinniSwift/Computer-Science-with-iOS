@@ -45,13 +45,16 @@ override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     }
 
     for subview in subviews.reversed() {
-        if let hitView = subview.hitTest(point, with: event) {
+        let subviewPoint = subview.convert(point, to: self)
+        if let hitView = subview.hitTest(subviewPoint, with: event) {
             return hitView
         }
     }
     return nil
 }
 ```
+
+The points are relative to that view you are calling it on. Therefore, when transfering the point to a subview, you must account for it's point relative to that of the subview. -- so that's why we use `convertPoint:fromView:`. We cover that below (in [Frame vs. Bounds](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/ui.md#frame-vs-bounds))
 
 When you're dealing with complex views that you might want to handle more of the user interaction. you can override `hitTest:withEvent` or `pointInside:withEvent:` to achieve more custom user interactions. One thing that may come of help here is when you set a views `isUserInteractionEnabled = false`, this makes all of it's subviews to be disregarded.
 

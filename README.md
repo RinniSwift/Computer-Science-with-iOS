@@ -63,10 +63,12 @@
 >
 > **[UIKit](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/ui.md)**\
 > &nbsp;&nbsp;&nbsp;View hierarchy\
+> &nbsp;&nbsp;&nbsp;Hit testing\
 > &nbsp;&nbsp;&nbsp;View lifecycles\
 > &nbsp;&nbsp;&nbsp;Frame vs. bounds\
 > &nbsp;&nbsp;&nbsp;UITableView vs. UICollectionView\
-> &nbsp;&nbsp;&nbsp;UITableView
+> &nbsp;&nbsp;&nbsp;UITableView\
+> &nbsp;&nbsp;&nbsp;UIScrollView
 >
 > **[Enums](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/enums.md)**
 >
