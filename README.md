@@ -28,6 +28,7 @@
 > &nbsp;&nbsp;&nbsp;Classes\
 > &nbsp;&nbsp;&nbsp;Structs\
 > &nbsp;&nbsp;&nbsp;Comparing classes and structs\
+> &nbsp;&nbsp;&nbsp;Functions\
 > &nbsp;&nbsp;&nbsp;Initializers
 >
 > **[GCD](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/gcd.md)**\
@@ -150,13 +151,14 @@
 
 ---
 
-> **Blogs that I find super useful**
+> **Blogs and books that I find super useful**
 > - https://developer.apple.com/documentation/swift
 > - https://www.swiftbysundell.com
 > - https://www.avanderlee.com
 > - https://github.com/apple/swift-evolution/tree/master/proposals
 > - https://medium.com/pragmatic-programmers/directory-of-pragmatic-programmer-books-on-medium-6a5cbadbd4b4
 > - https://www.geeksforgeeks.org
+> - https://www.oreilly.com/library/view/mastering-swift-53/9781800562158/
 > 
 > :paperclip: a more extensive [Resource List](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/resources.md)
 

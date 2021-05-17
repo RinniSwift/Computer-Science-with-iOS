@@ -72,6 +72,29 @@ struct Person {
 }
 ```
 
+
+## Functions
+
+With Swift 5.2, we're able to call a type as a function. Just simply add a method within the type called `callAsFunction()` like below:
+
+```swift
+struct Dice {
+    var highValue: Int
+    var lowValue: Int
+    
+    func callAsFunction() -> Int {
+        Int.random(in: lowValue...highValue)
+    }
+}
+
+let d6 = Dice(highValue: 6, lowValue: 1)
+let roll = d6()
+```
+*code snippet from: Mastering Swift 5.3 0 Sixth Addition by Jon Hoffman*
+
+This enables us to simplify how we call functions.
+
+
 ## Initializers
 
 *Initailization is the process of preparing an instance of a class, struct, or enum for use. This process involves setting initial values for each stored property on that instance and any other setup or initialization before the instance is ready for use.*\
