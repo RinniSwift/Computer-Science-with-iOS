@@ -124,7 +124,18 @@
 > &nbsp;&nbsp;&nbsp;Dependancy injection\
 > &nbsp;&nbsp;&nbsp;Notification center
 >
-> **[Swift Keywords](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftKeywords.md)**
+> **[Swift Keywords](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/swiftKeywords.md)**\
+> &nbsp;&nbsp;&nbsp;`@objc`\
+> &nbsp;&nbsp;&nbsp;`@escaping`\
+> &nbsp;&nbsp;&nbsp;`@available`\
+> &nbsp;&nbsp;&nbsp;`@final`\
+> &nbsp;&nbsp;&nbsp;`@discardableResult`\
+> &nbsp;&nbsp;&nbsp;`@propertyWrapper`\
+> &nbsp;&nbsp;&nbsp;Declarations\
+> &nbsp;&nbsp;&nbsp;Type aliases\
+> &nbsp;&nbsp;&nbsp;Stored Type Properties and Computed Properties\
+> &nbsp;&nbsp;&nbsp;Instance Properties and Type Properties\
+> &nbsp;&nbsp;&nbsp;Identifiers
 >
 > **[Collection Protocols](https://github.com/RinniSwift/Computer-Science-with-iOS/blob/main/collectionProtocols.md)**
 >

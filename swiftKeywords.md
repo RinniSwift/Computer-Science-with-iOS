@@ -7,7 +7,7 @@
 - `available`
 - `final`
 - `@discardableResult`
-
+- `@propertyWrapper`
 - `instance properties` and `type properties`
 - `class` and `static`
 - `lazy` stored properties
@@ -22,6 +22,33 @@ Add this attribute when declaring a function with a return type but telling the 
 ```
 
 This will make it available to call directly without needing to store in a variable.
+
+### `@propertyWrapper`
+Introduced in Swift 5.1, this enables property values to be wrapped by using a custom type. Here's an example use case:
+
+```swift
+@propertyWrapper
+struct Trimmed {
+    private var str: String = ""
+    var wrappedValue: String {
+        get {
+            str
+        }
+        set {
+            str = newValue.trimmingCharacters(in: .whiteSpacesAndNewLines)
+        }
+    }
+    init(wrappedValue: String) {
+        self.wrappedValue = wrappedValue
+    }
+}
+
+@Trimmed var firstName = ""
+@Trimmed var lastName = ""
+```
+*code snippet from Mastering Swift 5.3 - Sixth Addition by Jon Hoffman*
+
+Now when setting the `firstName` and `lastName` variables, it will automatically remove the white spaces.
 
 ---
 
