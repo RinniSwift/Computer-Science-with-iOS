@@ -6,11 +6,24 @@
 - `escaping`
 - `available`
 - `final`
+- `@discardableResult`
 
 - `instance properties` and `type properties`
 - `class` and `static`
 - `lazy` stored properties
 
+### `@discardableResult`
+Add this attribute when declaring a function with a return type but telling the compiler that the caller doesn't need to use the result. This will also silence warnings.
+
+```swift
+@discardableResult func doSomething() -> Int {
+    return 22
+}
+```
+
+This will make it available to call directly without needing to store in a variable.
+
+---
 
 ## Declarations
 Declarations introduce new names or constructs into your program. You use *declarations* to introduce; classes, functions, methods, variables, constants, enums, structs, and protocols.
