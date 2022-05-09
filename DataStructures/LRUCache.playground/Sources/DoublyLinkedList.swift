@@ -63,7 +63,7 @@ public class DoublyLinkedList<T: Payload> {
         }
     }
 
-    /// traverses the nodes and returns the node at the given index and nil if no nodes are found in the LinkedList.
+    /// Traverses the nodes and returns the node at the given index and nil if no nodes are found in the LinkedList.
     /// The head starting at index 0.
     func node(at index: Int) -> Node<T>? {
         guard !isEmpty || index == 0 else {
@@ -96,7 +96,8 @@ public class DoublyLinkedList<T: Payload> {
     }
 
     /// The head starting at index 0
-    /// returns bool indicating wether or not the insert was successful.
+    /// - Returns: Discardable Bool indicating whether or not the insert was successful.
+    @discardableResult
     public func insert(value: T, at index: Int) -> Bool {
         guard !isEmpty else {
             add(value: value)
@@ -139,7 +140,8 @@ public class DoublyLinkedList<T: Payload> {
     }
 
     /// The head starting at index 0
-    /// returns bool indicating wether or not the insert was successful.
+    /// - Returns: Discardable Bool indicating wether or not the insert was successful.
+    @discardableResult
     public func insert(node: Node<T>, at index: Int) -> Bool {
         guard !isEmpty else {
             head = node
@@ -181,7 +183,8 @@ public class DoublyLinkedList<T: Payload> {
     }
 
     /// The head of the LinkedList starting at index 0
-    /// Returns bool indicating wether or not the remove was successful
+    /// - Returns: Discardable Bool indicating wether or not the remove was successful.
+    @discardableResult
     func remove(at index: Int) -> Bool {
         guard case 0..<count = index else {
             return false
@@ -212,6 +215,8 @@ public class DoublyLinkedList<T: Payload> {
     }
 
     /// Removes the last element from the linkedlist.
+    /// - Returns: Discardable Bool indicating whether or not the removal was successful.
+    @discardableResult
     public func remove() -> Bool {
         guard !isEmpty else {
             return false
